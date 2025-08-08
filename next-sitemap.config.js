@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://your-domain.com',
+  siteUrl: process.env.SITE_URL || 'https://zakkann.com',
   generateRobotsTxt: true,
   exclude: ['/admin/*'],
   additionalPaths: async () => {

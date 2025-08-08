@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Fractional CTO Services",
-  description: "Expert fractional CTO services for growing companies",
+  title: "Zak Kann - Fractional CTO & AI-Driven Automation",
+  description: "Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec. Fractional CTO & AI-Driven Automation for SMBs that want to win.",
 };
 
 export default function SiteLayout({
@@ -10,5 +12,13 @@ export default function SiteLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
 } 
