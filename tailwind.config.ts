@@ -23,6 +23,12 @@ const config: Config = {
           900: '#1e3a8a',
           950: '#172554',
         },
+        // Futuristic Trust Builder palette
+        primary: '#1B263B', // navy slate
+        secondary: '#415A77', // cool steel
+        cta: '#E63946', // red accent for CTAs
+        highlight: '#F4D35E', // gold for ROI/logos
+        text: '#1C1C1E', // near-black text
       },
     },
   },

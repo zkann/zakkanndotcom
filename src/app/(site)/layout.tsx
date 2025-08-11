@@ -39,7 +39,7 @@ export default function SiteLayout({
 }>) {
   return (
     <div className="min-h-screen flex flex-col">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-600 text-white px-3 py-2 rounded">Skip to content</a>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-[#1B263B] text-white px-3 py-2 rounded">Skip to content</a>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
