@@ -5,16 +5,7 @@ import { useState } from 'react';
 
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isCalOpen, setIsCalOpen] = useState(false);
   const toggleMobile = () => setIsMobileOpen((prev) => !prev);
-  const CAL_URL = process.env.NEXT_PUBLIC_CAL_URL || 'mailto:zak@zakkann.com';
-  const withUtm = (source: string) => `${CAL_URL}${CAL_URL.includes('?') ? '&' : '?'}utm_source=${encodeURIComponent(source)}&utm_medium=website`;
-  const trackClick = (source: string) => {
-    try {
-      (window as unknown as { va?: (name: string, payload: { name: string; source: string }) => void })
-        ?.va?.('event', { name: 'cta_click', source });
-    } catch {}
-  };
   return (
     <header className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,13 +28,12 @@ export default function Header() {
             <Link href="/#contact" className="text-base font-medium text-gray-500 hover:text-gray-900 transition-colors">
               Contact
             </Link>
-            <button
-              type="button"
-              onClick={() => { trackClick('header'); setIsCalOpen(true); }}
+            <Link
+              href="/book"
               className="ml-4 inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
             >
               Book a call
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -85,35 +75,17 @@ export default function Header() {
               <Link href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" onClick={() => setIsMobileOpen(false)}>
                 Contact
               </Link>
-              <button
-                type="button"
-                onClick={() => { setIsCalOpen(true); setIsMobileOpen(false); }}
+              <Link
+                href="/book"
                 className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                onClick={() => setIsMobileOpen(false)}
               >
                 Book a call
-              </button>
+              </Link>
             </div>
           </div>
         )}
       </div>
-      {isCalOpen && (
-        <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setIsCalOpen(false)} />
-          <div className="relative bg-white rounded-lg shadow-xl w-full max-w-3xl h-[80vh] overflow-hidden">
-            <div className="flex justify-between items-center p-3 border-b">
-              <h3 className="font-semibold text-gray-900">Book a call</h3>
-              <button
-                aria-label="Close"
-                className="p-2 rounded hover:bg-gray-100"
-                onClick={() => setIsCalOpen(false)}
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
-              </button>
-            </div>
-            <iframe title="Calendar" src={withUtm('header')} className="w-full h-full" />
-          </div>
-        </div>
-      )}
     </header>
   );
 } 

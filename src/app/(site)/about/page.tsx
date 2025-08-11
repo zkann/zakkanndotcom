@@ -7,8 +7,6 @@ export const metadata = {
     'Founder and fractional CTO helping SMBs cut costs and ship faster with AI-driven automation.',
 };
 
-const CAL_URL = process.env.NEXT_PUBLIC_CAL_URL || 'mailto:zak@zakkann.com';
-
 export default function AboutPage() {
   return (
     <div className="bg-white">
@@ -29,13 +27,13 @@ export default function AboutPage() {
 
         <div className="flex flex-wrap gap-4 mt-8">
           <a
-            href={CAL_URL}
+            href="/book"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
           >
             Book a strategy call
           </a>
           <a
-            href="https://linkedin.com/in/zacharykann"
+            href="https://linkedin.com/in/zkann"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"

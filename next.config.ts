@@ -40,6 +40,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/book",
+        destination: "https://calendly.com/zakkann/30min",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default withContentlayer(nextConfig);

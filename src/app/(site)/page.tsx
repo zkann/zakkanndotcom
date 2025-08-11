@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const CAL_URL = process.env.NEXT_PUBLIC_CAL_URL || 'mailto:zak@zakkann.com';
-
 export default function Home() {
   return (
     <>
@@ -19,7 +17,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href={CAL_URL}
+                href="/book"
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 Book a 30‑min call →
@@ -121,7 +119,7 @@ export default function Home() {
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1" />
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Cut Cost & Chaos</h3>
@@ -262,7 +260,7 @@ export default function Home() {
                   <li>• Code reviews & technical guidance</li>
                 </ul>
                 <a
-                  href={CAL_URL}
+                  href="/book"
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -287,7 +285,7 @@ export default function Home() {
                   <li>• AI automation implementation</li>
                 </ul>
                 <a
-                  href={CAL_URL}
+                  href="/book"
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -309,7 +307,7 @@ export default function Home() {
                   <li>• Complete AI transformation</li>
                 </ul>
                 <a
-                  href={CAL_URL}
+                  href="/book"
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -434,7 +432,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
-                href={CAL_URL}
+                href="/book"
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 transition-colors"
               >
                 Book My Call
