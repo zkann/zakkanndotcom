@@ -399,7 +399,7 @@ export default function Home() {
       <div id="about" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">This isn&apos;t our first rodeo.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">This isn&apos;t my first rodeo.</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               PhD chemist turned ad‑tech data‑scientist turned 2× SaaS founder. 10+ years building revenue‑driving 
               software and data pipelines. Now helping growth‑stage businesses win with AI and automation.
