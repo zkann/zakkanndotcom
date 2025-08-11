@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#1B263B]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1B263B]/90 border-b border-[#415A77] shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-6">
+        <div className="flex justify-between items-center py-4 md:py-5">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/" className="text-2xl font-bold text-white hover:text-[#F4D35E] transition-colors">
               Zak Kann

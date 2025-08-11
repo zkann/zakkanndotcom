@@ -18,18 +18,12 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <a
                 href="/book"
-                className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors shadow-lg"
+                className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors shadow-lg w-full sm:w-auto justify-center"
               >
                 Start Shipping Faster — Book a free strategy call
               </a>
-              <a
-                href="#results"
-                className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-md text-white/90 bg-[#415A77] hover:bg-[#415A77]/90 transition-colors"
-              >
-                See Results
-              </a>
             </div>
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-white/70 mt-2">
               <span className="font-semibold text-[#F4D35E]">Risk‑free:</span> I’ll earn the next month.
             </p>
           </div>
@@ -38,7 +32,7 @@ export default function Home() {
 
       {/* About me quick card */}
       <div className="bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 pb-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-12 lg:mt-16 pb-8">
           <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-4">
             <Image src="/zakkann.jpg" alt="Zak Kann" width={56} height={56} className="rounded-full object-cover" />
             <div className="flex-1">
@@ -51,7 +45,7 @@ export default function Home() {
       </div>
 
       {/* How I work / Focus areas */}
-      <div className="bg-white py-12 border-b border-gray-200">
+      <div className="bg-white py-16 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -450,7 +444,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex justify-center space-x-6">
               <a
-                href="https://linkedin.com/in/zacharykann"
+                href="https://linkedin.com/in/zkann"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#415A77] hover:text-[#415A77]/80 font-medium"
@@ -484,7 +478,7 @@ export default function Home() {
                 Book My Call
               </a>
               <a
-                href="mailto:zak@zakkann.com"
+                href="mailto:zak@zakkann.com?subject=New%20inquiry%20via%20zakkann.com"
                 className="inline-flex items-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-[#415A77]/60 transition-colors"
               >
                 Email Me
