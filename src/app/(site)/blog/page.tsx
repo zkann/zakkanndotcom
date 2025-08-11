@@ -1,12 +1,16 @@
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import Link from 'next/link';
+import { Suspense } from 'react';
+import { use } from 'react';
 
 export const revalidate = 3600; // ISR with 1-hour revalidation
 
-export default function BlogPage() {
+function BlogList({ tag, search }: { tag?: string; search?: string }) {
   const posts = allPosts
     .filter((post: Post) => !post.draft)
+    .filter((post: Post) => (tag ? post.tags?.includes(tag) : true))
+    .filter((post: Post) => (search ? (post.title + ' ' + post.excerpt).toLowerCase().includes(search.toLowerCase()) : true))
     .sort((a: Post, b: Post) => compareDesc(new Date(a.date), new Date(b.date)));
 
   return (
@@ -21,7 +25,34 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <div className="mt-16 space-y-12">
+          <div className="mt-6 text-sm text-gray-600">
+            Topics: <Link href="/blog?tag=automation" className="text-blue-600 hover:text-blue-700">Automation</Link>, {''}
+            <Link href="/blog?tag=data" className="text-blue-600 hover:text-blue-700">Data</Link>, {''}
+            <Link href="/blog?tag=internal%20tools" className="text-blue-600 hover:text-blue-700">Internal Tools</Link>
+            <span className="ml-2">·</span>{' '}
+            <Link href="/feed.xml" className="text-blue-600 hover:text-blue-700">RSS</Link>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2 justify-center">
+          {Array.from(new Set(allPosts.flatMap((p) => p.tags || []))).map((t) => (
+            <Link
+              key={t}
+              href={t === tag ? '/blog' : `/blog?tag=${encodeURIComponent(t)}`}
+              className={`px-3 py-1 rounded-full text-sm font-medium border ${
+                t === tag ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              {t}
+            </Link>
+          ))}
+        </div>
+
+        <form className="mt-10 max-w-xl mx-auto flex gap-2" action="/blog" method="get">
+          <input name="search" defaultValue={search} placeholder="Search posts" className="flex-1 border border-gray-300 rounded-md px-3 py-2" />
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-md">Search</button>
+        </form>
+
+        <div className="mt-8 space-y-12">
           {posts.map((post: Post) => (
             <article key={post.slug} className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow p-8">
               <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
@@ -34,6 +65,8 @@ export default function BlogPage() {
                 </time>
                 <span className="text-gray-300">•</span>
                 <span className="font-medium">By {post.author}</span>
+                <span className="text-gray-300">•</span>
+                <span>{post.readingTimeMinutes} min read</span>
               </div>
               
               <Link href={post.url} className="group block">
@@ -77,3 +110,12 @@ export default function BlogPage() {
     </div>
   );
 } 
+
+export default function BlogPage({ searchParams }: { searchParams: Promise<{ tag?: string; search?: string }> }) {
+  const { tag, search } = use(searchParams);
+  return (
+    <Suspense>
+      <BlogList tag={tag} search={search} />
+    </Suspense>
+  );
+}

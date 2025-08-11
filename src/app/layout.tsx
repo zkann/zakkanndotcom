@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL || 'https://zakkann.com'),
   title: "Fractional CTO Services",
   description: "Expert fractional CTO services for growing companies",
 };

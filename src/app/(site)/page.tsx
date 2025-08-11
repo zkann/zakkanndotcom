@@ -1,89 +1,72 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+const CAL_URL = process.env.NEXT_PUBLIC_CAL_URL || 'mailto:zak@zakkann.com';
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
-        <div className="absolute inset-0 bg-white/60"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="text-center">
-            <div className="inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              🎉 New Plan. Lower prices. <span className="ml-2 text-blue-600">Thank AI for the assist</span>
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block">Top-Tier Fractional CTO &</span>
-              <span className="block text-blue-600">AI-Driven Automation</span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl font-normal text-gray-700 mt-2">
-                at a Fraction of the Cost
-              </span>
+              <span className="block">Fractional CTO + Automation</span>
+              <span className="block text-blue-600">for SMBs</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
-              Cut costs, crush bottlenecks and ship faster—without hiring a full‑time tech exec.
+              Book a quick call to align on goals and fit. If it makes sense, I’ll propose a focused 1‑week pilot.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href="#contact"
+                href={CAL_URL}
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
-                Book a 15‑min Strategy Call →
-              </a>
-              <a
-                href="#pricing"
-                className="inline-flex items-center px-8 py-4 border border-gray-300 text-lg font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-              >
-                See Pricing
+                Book a 30‑min call →
               </a>
             </div>
             <p className="text-sm text-gray-500 mb-12">
-              <span className="font-semibold text-green-600">Results‑backed guarantee:</span> see ROI within 60 days or we work free until you do.
+              <span className="font-semibold text-green-600">Risk‑free:</span> I’ll earn the next month.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Trust Ribbon */}
+      {/* About me quick card */}
+      <div className="bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 pb-6">
+          <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <Image src="/zakkann.jpg" alt="Zak Kann" width={56} height={56} className="rounded-full object-cover" />
+            <div className="flex-1">
+              <p className="text-gray-900 font-semibold">Zak Kann</p>
+              <p className="text-gray-600 text-sm">Fractional CTO helping SMBs cut costs and ship faster with automation and internal tools.</p>
+            </div>
+            <Link href="/about" className="text-blue-600 hover:text-blue-700 text-sm font-medium">About me →</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* How I work / Focus areas */}
       <div className="bg-white py-12 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm text-gray-500 mb-8">Trusted by</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-sm">MS</span>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">Microsoft</p>
-                    <p className="text-sm text-gray-500">Former Team Lead</p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-700 italic">"Exceptional technical leadership and strategic thinking"</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold text-sm">RC</span>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">RetailCo</p>
-                    <p className="text-sm text-gray-500">COO</p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-700 italic">"Saved us 12 hrs/week with smart automation"</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-purple-600 font-bold text-sm">FS</span>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">FinTech Startup</p>
-                    <p className="text-sm text-gray-500">Founder</p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-700 italic">"Paid for itself in under a month"</p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">How I work</h2>
+              <ul className="space-y-3 text-gray-700">
+                <li>• Outcome‑first: we define a measurable result before we build</li>
+                <li>• Keep it simple: durable, maintainable solutions beat shiny tools</li>
+                <li>• Security‑minded: least‑privilege access and clear auditability</li>
+                <li>• Fast feedback: async‑first with a predictable weekly cadence</li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Focus areas</h2>
+              <ul className="space-y-3 text-gray-700">
+                <li>• Ops automation across CRM, billing, reporting, and support</li>
+                <li>• Data pipelines and analytics for decision‑making</li>
+                <li>• Internal tools: dashboards, scripts, and chat bots</li>
+                <li>• AI‑assisted workflows where it meaningfully improves output</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -100,24 +83,15 @@ export default function Home() {
               The best CTOs already have full-time jobs. Recruiting, interviewing, and onboarding wastes months before work even starts.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Limited Talent Pool</h3>
-              <p className="text-gray-600">The best talent already has full-time jobs, so your hiring pool is severely limited.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Months of Delays</h3>
-              <p className="text-gray-600">Interviewing, vetting, and onboarding waste months before any actual work begins.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Months of Delay</h3>
+              <p className="text-gray-600">Vetting and onboarding take time; ops problems pile up in the meantime.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -126,21 +100,21 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Expensive Overhead</h3>
-              <p className="text-gray-600">Full-time CTOs cost $200K+ plus benefits, equity, and management overhead.</p>
+              <p className="text-gray-600">Full‑time leadership is costly. Fractional lets you move now without the bloat.</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Solution Section */}
-      <div className="bg-white py-16">
+      {/* Solution / Services Section */}
+      <div id="services" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Hire Top CTO Talent Fractionally
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're talking PhD-level expertise from Microsoft, Google, Apple, and more. These folks are looking to make an impact, innovate, and shake things up.
+              We&apos;re talking PhD-level expertise from Microsoft, Google, Apple, and more. These folks are looking to make an impact, innovate, and shake things up.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -175,11 +149,64 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Common automations */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Common automations</h2>
+            <p className="text-xl text-gray-600">Practical wins that pay for themselves</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              'CRM updates and lead routing',
+              'Invoice generation and reconciliation',
+              'Weekly KPIs and reporting',
+              'Customer support triage and tagging',
+              'Data syncs between tools',
+              'Slack/Teams bots for ops',
+            ].map((item) => (
+              <Link key={item} href="/blog" className="block bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-5 text-gray-800 transition-colors">
+                {item}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* What you'll get */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What you&apos;ll get</h2>
+            <p className="text-xl text-gray-600">Tangible deliverables from day one</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">In the first week (pilot)</h3>
+              <ul className="text-gray-700 space-y-2 list-disc list-inside">
+                <li>Quick‑win automation scoped and shipped</li>
+                <li>Automation backlog and prioritized roadmap</li>
+                <li>Documentation and handover video</li>
+                <li>Security: least‑privilege access and auditability</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Ongoing</h3>
+              <ul className="text-gray-700 space-y-2 list-disc list-inside">
+                <li>1–2 production‑ready automations per sprint (by plan)</li>
+                <li>Weekly check‑ins and async updates in Slack/Teams</li>
+                <li>Optional team training for long‑term maintainability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* How It Works */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">So What's Next?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">So What&apos;s Next?</h2>
             <p className="text-xl text-gray-600">A simple 3-step process to get you started</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -187,17 +214,17 @@ export default function Home() {
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Book A Demo</h3>
-              <h4 className="text-lg font-medium text-gray-700 mb-2">We Audit Your Stack</h4>
-              <p className="text-gray-600">Based on your requirements and tech stack, our team assembles, vets, and onboards the talent you need.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Book a Call</h3>
+              <h4 className="text-lg font-medium text-gray-700 mb-2">Align on Goals</h4>
+              <p className="text-gray-600">We discuss your context, constraints, and desired outcomes to confirm fit.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">One Week</h3>
-              <h4 className="text-lg font-medium text-gray-700 mb-2">Risk-Free Trial</h4>
-              <p className="text-gray-600">Try us out for a week, risk-free. If you aren't satisfied with your results, we'll either fix it, or it's on us.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Optional Pilot</h3>
+              <h4 className="text-lg font-medium text-gray-700 mb-2">Scope a Quick‑Win</h4>
+              <p className="text-gray-600">If there’s a fit, we scope a 1‑week pilot, ship a quick‑win, and plan next steps.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -235,7 +262,7 @@ export default function Home() {
                   <li>• Code reviews & technical guidance</li>
                 </ul>
                 <a
-                  href="#contact"
+                  href={CAL_URL}
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -260,7 +287,7 @@ export default function Home() {
                   <li>• AI automation implementation</li>
                 </ul>
                 <a
-                  href="#contact"
+                  href={CAL_URL}
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -282,7 +309,7 @@ export default function Home() {
                   <li>• Complete AI transformation</li>
                 </ul>
                 <a
-                  href="#contact"
+                  href={CAL_URL}
                   className="block w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Get Started
@@ -293,48 +320,76 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Testimonials */}
+      {/* FAQ */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Hear From Our Clients</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">FAQ</h2>
+            <p className="text-xl text-gray-600">Straight answers to common questions</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-blue-600 font-bold">JL</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Jordan L.</p>
-                  <p className="text-sm text-gray-600">Founder, FinTech Startup</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"Zak's two‑week pilot shaved five hours off our weekly reporting cycle and paid for itself inside a month."</p>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: 'Do you sign NDAs?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'Yes—ours or yours.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'How do we measure ROI?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'We baseline the current process time and error rate, then track the deltas after automation.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'How fast can we start?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'Usually within 5 business days.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Can you train our team?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'Yes—handover docs, a video walkthrough, and optional workshops.',
+                    },
+                  },
+                ],
+              }),
+            }}
+          />
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Do you sign NDAs?</h3>
+              <p className="text-gray-700">Yes—ours or yours.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-green-600 font-bold">BG</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Bryan Garner</p>
-                  <p className="text-sm text-gray-600">Partner, White Deer Group</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"We feel like it's a long term relationship. I know I can come back and have them build on what we've made over time."</p>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">How do we measure ROI?</h3>
+              <p className="text-gray-700">We baseline the current process time and error rate, then track the deltas after automation.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-purple-600 font-bold">DJ</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">David Jordan</p>
-                  <p className="text-sm text-gray-600">COO, Tauxbe Data</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">"When you hire people, normally it takes 90 days to get them up to speed - they were able to jump in and start delivering within weeks."</p>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">What tools do you work with?</h3>
+              <p className="text-gray-700">HubSpot/Salesforce, Airtable, Google Sheets, Zapier/Make, Slack/Teams, Postgres, and light Node/Python as needed.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">How fast can we start?</h3>
+              <p className="text-gray-700">Usually within 5 business days.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Can you train our team?</h3>
+              <p className="text-gray-700">Yes—handover docs, a video walkthrough, and optional workshops.</p>
             </div>
           </div>
         </div>
@@ -344,7 +399,7 @@ export default function Home() {
       <div id="about" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">This isn't our first rodeo.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">This isn&apos;t our first rodeo.</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               PhD chemist turned ad‑tech data‑scientist turned 2× SaaS founder. 10+ years building revenue‑driving 
               software and data pipelines. Now helping growth‑stage businesses win with AI and automation.
@@ -372,20 +427,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Get started with us 7 days risk-free. Seriously.
+              Get started 7 days risk-free. Seriously.
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Book a free 15‑minute consult and get a personalised automation roadmap.
+              Book a free 30‑minute consult and get a personalised automation roadmap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
-                href="mailto:hello@zakann.com"
+                href={CAL_URL}
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 transition-colors"
               >
                 Book My Call
               </a>
               <a
-                href="mailto:hello@zakann.com"
+                href="mailto:zak@zakkann.com"
                 className="inline-flex items-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-blue-700 transition-colors"
               >
                 Email Me

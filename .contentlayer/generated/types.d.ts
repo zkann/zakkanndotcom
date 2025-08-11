@@ -25,10 +25,17 @@ export type Post = {
   tags?: string[] | undefined
   /** The author of the post */
   author: string
+  /** The last updated date of the post */
+  updated?: IsoDateTimeString | undefined
+  /** Open Graph image URL */
+  ogImage?: string | undefined
+  /** SEO keywords */
+  keywords?: string[] | undefined
   /** MDX file body */
   body: MDX
   url: string
   slug: string
+  readingTimeMinutes: number
 }  
 
 /** Nested types */

@@ -1,4 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkGfm from 'remark-gfm';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -33,7 +36,23 @@ export const Post = defineDocumentType(() => ({
     author: {
       type: 'string',
       description: 'The author of the post',
-      default: 'Fractional CTO',
+      default: 'Zak Kann',
+    },
+    updated: {
+      type: 'date',
+      description: 'The last updated date of the post',
+      required: false,
+    },
+    ogImage: {
+      type: 'string',
+      description: 'Open Graph image URL',
+      required: false,
+    },
+    keywords: {
+      type: 'list',
+      of: { type: 'string' },
+      description: 'SEO keywords',
+      required: false,
     },
   },
   computedFields: {
@@ -45,6 +64,14 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (doc) => doc._raw.flattenedPath.replace('blog/', ''),
     },
+    readingTimeMinutes: {
+      type: 'number',
+      resolve: (doc) => {
+        const text = (doc.body?.raw as string) || '';
+        const words = text.trim().split(/\s+/).length;
+        return Math.max(1, Math.ceil(words / 200));
+      },
+    },
   },
 }));
 
@@ -52,7 +79,19 @@ export default makeSource({
   contentDirPath: './content',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: {
+            className: ['heading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
+    ],
   },
 }); 
