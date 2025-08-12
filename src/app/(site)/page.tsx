@@ -121,7 +121,7 @@ export default function Home() {
               href="/book"
               className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
             >
-              Book My Free 30-Min Call — See what we can automate in a week
+              Book your free call — See what we can automate in a week
             </a>
           </div>
         </div>
