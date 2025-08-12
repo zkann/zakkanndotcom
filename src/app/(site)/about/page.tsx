@@ -29,7 +29,7 @@ export default function AboutPage() {
             href="/book"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
           >
-            📅 Book My Free 30-Min Call
+            📅 Book my free 30-min call
           </a>
           <a
             href="https://linkedin.com/in/zkann"

@@ -38,7 +38,7 @@ export default function Home() {
                 href="/book"
                 className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-xl text-white bg-[#E63946] hover:brightness-90 transition-colors shadow-sm w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946] focus-visible:ring-offset-[#1B263B]"
               >
-                📅 Book My Free 30-Min Call
+                📅 Book my free 30-min call
               </a>
             </div>
             <div className="text-sm text-white/80 mt-4">Slots fill fast, so secure yours today.</div>
@@ -105,7 +105,7 @@ export default function Home() {
             />
           </div>
           <div className="text-center mb-12 md:mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-[#1B263B]">The Cost of Manual Processes is Crushing SMBs</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-[#1B263B]">The cost of manual processes is crushing SMBs</h2>
           </div>
 
 
@@ -114,7 +114,7 @@ export default function Home() {
             <Card className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:shadow-md hover:ring-slate-300 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-rose-500 before:content-['']">
               <CardHeader className="pb-2">
                 <div className="flex items-center">
-                  <span className="text-[11px] font-semibold tracking-wide text-slate-600 uppercase">Problems</span>
+                  <span className="text-[11px] font-semibold tracking-wide text-slate-600">Problems</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -130,7 +130,7 @@ export default function Home() {
             <Card className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:shadow-md hover:ring-slate-300 before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-emerald-500 before:content-['']">
               <CardHeader className="pb-2">
                 <div className="flex items-center">
-                  <span className="text-[11px] font-semibold tracking-wide text-slate-600 uppercase">AI Automation Fix</span>
+                  <span className="text-[11px] font-semibold tracking-wide text-slate-600">AI automation fix</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -149,11 +149,11 @@ export default function Home() {
       <div className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automation That Pays for Itself From Day One</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automation that pays for itself from day one</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">In Your First Week</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">In your first week</h3>
               <ul className="space-y-2.5 text-gray-700">
                 <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />1–2 AI-powered automations shipped</li>
                 <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />Backlog of high-ROI automation ideas</li>
@@ -176,7 +176,7 @@ export default function Home() {
       <div id="process" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">How It Works</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">How it works</h2>
           </div>
           {/* New single-SVG timeline */}
           <div className="hidden md:block">
@@ -188,17 +188,17 @@ export default function Home() {
           <div className="md:hidden space-y-6">
             <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
               <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#415A77] text-white text-sm ring-1 ring-black/5">1</div>
-              <h3 className="text-base font-semibold text-slate-900">Book a Free Call</h3>
+              <h3 className="text-base font-semibold text-slate-900">Book a free call</h3>
               <p className="mt-1 text-slate-600 leading-6">Identify automation opportunities</p>
             </div>
             <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
               <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#415A77] text-white text-sm ring-1 ring-black/5">2</div>
-              <h3 className="text-base font-semibold text-slate-900">1‑Week Pilot</h3>
+              <h3 className="text-base font-semibold text-slate-900">1‑week pilot</h3>
               <p className="mt-1 text-slate-600 leading-6">Build your first automation</p>
             </div>
             <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
               <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#415A77] text-white text-sm ring-1 ring-black/5">3</div>
-              <h3 className="text-base font-semibold text-slate-900">Scale & Optimize</h3>
+              <h3 className="text-base font-semibold text-slate-900">Scale & optimize</h3>
               <p className="mt-1 text-slate-600 leading-6">Continuous improvements</p>
             </div>
           </div>
@@ -207,17 +207,17 @@ export default function Home() {
               href="/book"
               className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
             >
-              📅 Book My Free 30-Min Call
+              📅 Book my free 30-min call
             </a>
           </div>
         </div>
       </div>
 
       {/* 5. Common SMB Automations */}
-      <div className="bg-slate-50 py-20">
+      <div id="use-cases" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Practical Automations That Pay for Themselves</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Practical automations that pay for themselves</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -280,53 +280,28 @@ export default function Home() {
 
       {/* removed testimonials section for streamlined flow */}
 
-      {/* 6. Pricing & Packages */}
+      {/* 6. Pricing */}
       <div id="pricing" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">Simple, Transparent Pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">Your Automation Should Pay for Itself — Fast</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="max-w-2xl mx-auto">
             <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
               <div className="text-center">
-                <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Starter</h3>
-                <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
-                <p className="text-slate-600 mb-5">1 automation/mo + support</p>
+                <p className="text-base font-semibold text-slate-900 mb-3">Our clients typically:</p>
+                <ul className="text-left inline-block text-slate-700 space-y-2 mb-5">
+                  <li>✅ Eliminate $5K–$15K/mo in ops costs</li>
+                  <li>✅ Save 10–20 hours/week in manual work</li>
+                  <li>✅ See results in under 2 weeks</li>
+                </ul>
                 <a
-                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=starter&a1=${encodeURIComponent('Plan interest: Starter')}`}
+                  href={`/book?utm_source=site&utm_medium=pricing-card`}
                   className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
                 >
-                  Book starter call
+                  Book your free call
                 </a>
-              </div>
-            </div>
-            <div className="relative rounded-2xl bg-white p-8 shadow-md ring-2 ring-[#415A77]">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="rounded-full bg-[#415A77] px-3 py-1 text-xs font-medium text-white">Most Popular</span>
-              </div>
-              <div className="text-center">
-                <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Growth</h3>
-                <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
-                <p className="text-slate-600 mb-5">2–3 automations/mo + training</p>
-                <a
-                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=growth&a1=${encodeURIComponent('Plan interest: Growth')}`}
-                  className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
-                >
-                  Book growth call
-                </a>
-              </div>
-            </div>
-            <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <div className="text-center">
-                <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Scale</h3>
-                <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
-                <p className="text-slate-600 mb-5">Unlimited requests, dedicated support</p>
-                <a
-                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=scale&a1=${encodeURIComponent('Plan interest: Scale')}`}
-                  className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
-                >
-                  Book scale call
-                </a>
+                <p className="mt-2 text-sm text-slate-600">We’ll map out your automation opportunities and give you a custom plan & quote.</p>
               </div>
             </div>
           </div>
@@ -334,10 +309,10 @@ export default function Home() {
       </div>
 
       {/* 7. Trust & FAQ */}
-      <div className="bg-slate-50 py-20">
+      <div id="faq" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
           </div>
           <script
             type="application/ld+json"
@@ -359,7 +334,7 @@ export default function Home() {
                     name: 'What tools do you work with?',
                     acceptedAnswer: {
                       '@type': 'Answer',
-                      text: 'We integrate with common SMB stacks (HubSpot/Salesforce, QuickBooks, Stripe, Airtable, Google Workspace, Slack/Teams, Zapier/Make, and APIs).',
+                      text: 'We integrate with common SMB stacks (HubSpot/Salesforce, QuickBooks, Stripe, Airtable, Google Workspace, Slack/Teams, Zapier/Make/N8N, and APIs).',
                     },
                   },
                   {
@@ -397,7 +372,7 @@ export default function Home() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
               <h3 className="font-semibold text-gray-900 mb-2">What tools do you work with?</h3>
-              <p className="text-gray-700">We integrate with common SMB stacks (HubSpot/Salesforce, QuickBooks, Stripe, Airtable, Google Workspace, Slack/Teams, Zapier/Make, and APIs).</p>
+              <p className="text-gray-700">We integrate with common SMB stacks (HubSpot/Salesforce, QuickBooks, Stripe, Airtable, Google Workspace, Slack/Teams, Zapier/Make/N8N, and APIs).</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
               <h3 className="font-semibold text-gray-900 mb-2">How quickly can we start?</h3>
@@ -421,10 +396,10 @@ export default function Home() {
       <div id="contact" className="bg-[#1B263B]">
         <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Cut Costs & Move Faster?</h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 7 days or less.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to cut costs & move faster?</h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 2 weeks or less.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <a href="/book" className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946] focus-visible:ring-offset-[#1B263B]">📅 Book My Free 30-Min Call</a>
+              <a href="/book" className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946] focus-visible:ring-offset-[#1B263B]">📅 Book my free 30-min call</a>
             </div>
             <p className="text-sm text-white/70">⚡ Slots fill quickly. Secure yours today.</p>
           </div>

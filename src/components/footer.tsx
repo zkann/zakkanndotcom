@@ -38,41 +38,41 @@ export default function Footer() {
           <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-gray-300 tracking-wider">
                   Services
                 </h3>
                 <ul className="mt-4 space-y-4">
                   <li>
-                    <a href="#services" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Cut Cost & Chaos
-                    </a>
+                    <Link href="/#process" className="text-base text-gray-200 hover:text-white transition-colors">
+                      How it works
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Scale Smarter
-                    </a>
+                    <Link href="/#use-cases" className="text-base text-gray-200 hover:text-white transition-colors">
+                      Use cases
+                    </Link>
                   </li>
                   <li>
-                    <a href="#services" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Automation Delivery
-                    </a>
+                    <Link href="/#pricing" className="text-base text-gray-200 hover:text-white transition-colors">
+                      Pricing
+                    </Link>
                   </li>
                   <li>
-                    <a href="#pricing" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Project Pricing
-                    </a>
+                    <Link href="/#faq" className="text-base text-gray-200 hover:text-white transition-colors">
+                      FAQ
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-gray-300 tracking-wider">
                   Company
                 </h3>
                 <ul className="mt-4 space-y-4">
                   <li>
-                    <a href="/about" className="text-base text-gray-200 hover:text-white transition-colors">
+                    <Link href="/about" className="text-base text-gray-200 hover:text-white transition-colors">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link href="/blog" className="text-base text-gray-200 hover:text-white transition-colors">
@@ -80,18 +80,18 @@ export default function Footer() {
                     </Link>
                   </li>
                    <li>
-                     <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
-                       Book My Free 30-Min Call
-                     </a>
+                     <Link href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
+                       Book my free 30-min call
+                     </Link>
                    </li>
                   <li>
                     <Link href="/privacy" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Privacy
+                      Privacy policy
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Terms
+                      Terms of service
                     </Link>
                   </li>
                 </ul>
@@ -100,7 +100,7 @@ export default function Footer() {
             
             <div className="md:grid md:grid-cols-1 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-gray-300 tracking-wider">
                   Contact
                 </h3>
                 <ul className="mt-4 space-y-4">
@@ -110,9 +110,9 @@ export default function Footer() {
                     </a>
                   </li>
                    <li>
-                     <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
-                       Book My Free 30-Min Call
-                     </a>
+                     <Link href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
+                       Book my free 30-min call
+                     </Link>
                    </li>
                 </ul>
               </div>

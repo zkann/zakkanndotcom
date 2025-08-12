@@ -2,80 +2,134 @@
 
 import React from "react";
 
+function clamp(value: number, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
 export default function HowItWorks() {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [play, setPlay] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const thresholdsRef = React.useRef<{ start: number; end: number } | null>(null);
+  const [progress, setProgress] = React.useState(0);
+  const hasPlayedRef = React.useRef(false);
 
   React.useEffect(() => {
-    const el = ref.current;
+    const el = containerRef.current;
     if (!el) return;
-    const obs = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) { setPlay(true); break; }
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      setProgress(1);
+      hasPlayedRef.current = true;
+      return;
+    }
+
+    const computeThresholds = () => {
+      const rect = el.getBoundingClientRect();
+      const elementTop = window.scrollY + rect.top;
+      const start = elementTop - window.innerHeight; // start when bottom of viewport meets top of section
+      const endAtCenter = elementTop + rect.height / 2 - window.innerHeight / 2; // finish when section center aligns with viewport center
+      const end = Math.max(start + 1, endAtCenter); // ensure end > start
+      thresholdsRef.current = { start, end };
+    };
+
+    computeThresholds();
+
+    const onScroll = () => {
+      if (hasPlayedRef.current) return;
+      const t = thresholdsRef.current;
+      if (!t) return;
+      const y = window.scrollY;
+      const p = clamp((y - t.start) / (t.end - t.start));
+      setProgress(p);
+      if (p >= 1) {
+        hasPlayedRef.current = true;
+        setProgress(1);
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onResize);
       }
-    }, { threshold: 0.3 });
-    obs.observe(el);
-    return () => obs.disconnect();
+    };
+
+    const onResize = () => {
+      computeThresholds();
+      onScroll();
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    // run once in case we mount mid-viewport
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
+  // Map overall progress [0..1] to segment progresses
+  const line1Progress = clamp(progress / 0.4); // 0..0.4 of the scroll animates first segment
+  const line2Progress = clamp((progress - 0.6) / 0.4); // 0.6..1 animates second segment
+
+  const dashLength = 240; // matches visual segment length
+  const line1DashOffset = dashLength * (1 - line1Progress);
+  const line2DashOffset = dashLength * (1 - line2Progress);
+
+  const circle2Visible = progress >= 0.5 ? 1 : 0;
+  const circle3Visible = progress >= 0.9 ? 1 : 0;
+
   return (
-    <div ref={ref} className="relative mx-auto w-full max-w-5xl">
+    <div ref={containerRef} className="relative mx-auto w-full max-w-5xl">
       <svg viewBox="0 0 1000 150" className="w-full h-[130px] overflow-visible">
-        {/* base track (positions mirror old layout ~6%, 50%, 94%) */}
+        {/* base track */}
         <line x1="160" y1="60" x2="400" y2="60" stroke="#cbd5e1" strokeWidth="1" />
         <line x1="600" y1="60" x2="840" y2="60" stroke="#cbd5e1" strokeWidth="1" />
 
-        {/* animated overlay segments (fill left->right) */}
-        <line x1="160" y1="60" x2="400" y2="60" stroke="#64748b" strokeWidth="2" strokeLinecap="round"
-          className={play ? "[stroke-dasharray:240] [stroke-dashoffset:240] animate-[dash1_6s_ease-in-out_infinite]" : ""} />
-        <line x1="600" y1="60" x2="840" y2="60" stroke="#64748b" strokeWidth="2" strokeLinecap="round"
-          className={play ? "[stroke-dasharray:240] [stroke-dashoffset:240] animate-[dash2_6s_ease-in-out_infinite]" : ""} />
+        {/* scroll-linked overlay segments */}
+        <line
+          x1="160"
+          y1="60"
+          x2="400"
+          y2="60"
+          stroke="#64748b"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray={dashLength}
+          strokeDashoffset={line1DashOffset}
+        />
+        <line
+          x1="600"
+          y1="60"
+          x2="840"
+          y2="60"
+          stroke="#64748b"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray={dashLength}
+          strokeDashoffset={line2DashOffset}
+        />
 
-        {/* numbered nodes with fill-in animation */}
+        {/* numbered nodes */}
         <g>
-          <circle cx="60" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={1} data-cfill="1" />
+          <circle cx="60" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={1} />
           <text x="60" y="66" textAnchor="middle" fill="#ffffff" fontSize="16" fontWeight={700}>1</text>
         </g>
         <g>
-          <circle cx="500" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={0} data-cfill="1"
-            className={play ? "animate-[c2_6s_linear_infinite_both]" : ""} />
-          <text x="500" y="66" textAnchor="middle" fill="#415A77" fontSize="16" fontWeight={700} data-tfill
-            className={play ? "animate-[t2_6s_linear_infinite_both]" : ""}>2</text>
+          <circle cx="500" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={circle2Visible} />
+          <text x="500" y="66" textAnchor="middle" fill={circle2Visible ? "#ffffff" : "#415A77"} fontSize="16" fontWeight={700}>2</text>
         </g>
         <g>
-          <circle cx="940" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={0} data-cfill="1"
-            className={play ? "animate-[c3_6s_linear_infinite_both]" : ""} />
-          <text x="940" y="66" textAnchor="middle" fill="#415A77" fontSize="16" fontWeight={700} data-tfill
-            className={play ? "animate-[t3_6s_linear_infinite_both]" : ""}>3</text>
+          <circle cx="940" cy="60" r="24" fill="#415A77" stroke="#415A77" strokeWidth="2" fillOpacity={circle3Visible} />
+          <text x="940" y="66" textAnchor="middle" fill={circle3Visible ? "#ffffff" : "#415A77"} fontSize="16" fontWeight={700}>3</text>
         </g>
 
-        {/* titles and descriptions centered to circles (old typography feel) */}
-        <text x="60" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>Book a Free Call</text>
+        {/* titles and descriptions */}
+        <text x="60" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>Book a free call</text>
         <text x="60" y="134" textAnchor="middle" fill="#475569" fontSize="14">Identify automation opportunities</text>
 
-        <text x="500" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>1‑Week Pilot</text>
+        <text x="500" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>1‑week pilot</text>
         <text x="500" y="134" textAnchor="middle" fill="#475569" fontSize="14">Build your first automation</text>
 
-        <text x="940" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>Scale & Optimize</text>
+        <text x="940" y="112" textAnchor="middle" fill="#0f172a" fontSize="18" fontWeight={600}>Scale & optimize</text>
         <text x="940" y="134" textAnchor="middle" fill="#475569" fontSize="14">Continuous improvements</text>
-
-        <style>{`
-          @keyframes dash1 { 0%{stroke-dashoffset:240} 8%{stroke-dashoffset:240} 36%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
-          @keyframes dash2 { 0%{stroke-dashoffset:240} 44%{stroke-dashoffset:240} 76%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
-          /* circle fill highlight timings aligned with line sweeps; hold until loop restart (smooth fade) */
-          @keyframes c1 { 0%{fill-opacity:0} 5%{fill-opacity:0} 7%{fill-opacity:1} 100%{fill-opacity:1} }
-          @keyframes c2 { 0%,36%{fill-opacity:0} 40%{fill-opacity:1} 100%{fill-opacity:1} }
-          @keyframes c3 { 0%,72%{fill-opacity:0} 76%{fill-opacity:1} 100%{fill-opacity:1} }
-          /* number color fades from outline to white in the same window; holds */
-          @keyframes t1 { 0%{fill:#415A77} 5%{fill:#415A77} 7%{fill:#ffffff} 100%{fill:#ffffff} }
-          @keyframes t2 { 0%,36%{fill:#415A77} 40%{fill:#ffffff} 100%{fill:#ffffff} }
-          @keyframes t3 { 0%,72%{fill:#415A77} 76%{fill:#ffffff} 100%{fill:#ffffff} }
-          @media (prefers-reduced-motion: reduce){
-            line[stroke="#64748b"], circle[data-cfill], text{ animation: none !important }
-            circle[data-cfill]{ fill-opacity:1 !important }
-            text{ fill:#ffffff !important }
-          }
-        `}</style>
       </svg>
     </div>
   );
