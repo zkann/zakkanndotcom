@@ -79,11 +79,11 @@ export default function Footer() {
                       Blog
                     </Link>
                   </li>
-                  <li>
-                    <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Book a Strategy Call
-                    </a>
-                  </li>
+                   <li>
+                     <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
+                       Book My Free 30-Min Call
+                     </a>
+                   </li>
                   <li>
                     <Link href="/privacy" className="text-base text-gray-200 hover:text-white transition-colors">
                       Privacy
@@ -109,11 +109,11 @@ export default function Footer() {
                       zak@zakkann.com
                     </a>
                   </li>
-                  <li>
-                    <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Book a Strategy Call
-                    </a>
-                  </li>
+                   <li>
+                     <a href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
+                       Book My Free 30-Min Call
+                     </a>
+                   </li>
                 </ul>
               </div>
             </div>

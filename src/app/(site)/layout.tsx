@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     template: "%s | Zak Kann",
   },
   description:
-    "Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec. Fractional CTO & AI-Driven Automation for SMBs that want to win.",
+    "Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec. Fractional CTO & AI automation for SMBs. Small business automation consulting, fractional CTO services, AI automation for SMBs.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Fractional CTO & AI Automation – Zak Kann",
     description:
-      "Start risk‑free. Automation and internal tools that your team can maintain.",
+      "Start risk‑free. Automation and internal tools your team can maintain. Small business automation consulting, fractional CTO services.",
     url: "https://zakkann.com",
     siteName: "Zak Kann",
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fractional CTO & AI Automation – Zak Kann",
     description:
-      "Cut costs and ship faster with automation and technical leadership.",
+      "Cut costs and ship faster with automation and technical leadership for SMBs.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },

@@ -28,9 +28,9 @@ export default function AboutPage() {
         <div className="flex flex-wrap gap-4 mt-8">
           <a
             href="/book"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
           >
-            Book a strategy call
+            📅 Book My Free 30-Min Call
           </a>
           <a
             href="https://linkedin.com/in/zkann"

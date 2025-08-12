@@ -8,43 +8,126 @@ export default function Home() {
       <div className="bg-[#1B263B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-              <span className="block">Fractional CTO + Automation</span>
-              <span className="block text-[#F4D35E]">for SMBs</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
+              <span className="block">Cut Costs. Ship Faster. Skip the Hire.</span>
+              <span className="block text-[#F4D35E]">Automation for SMBs</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
-              Start shipping faster and cut costs with practical automations and internal tools. 7‑day risk‑free pilot.
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+              Get your first automation live in <span className="font-semibold">7 days or less</span>, risk‑free. Your team can stop wasting time and start winning.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
                 href="/book"
                 className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors shadow-lg w-full sm:w-auto justify-center"
               >
-                Start Shipping Faster — Book a free strategy call
+                📅 Book my free 30-min call
+              </a>
+              <a
+                href="#process"
+                className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white border border-white/30 hover:bg-white/10 transition-colors w-full sm:w-auto justify-center"
+              >
+                Learn how it works
               </a>
             </div>
-            <p className="text-sm text-white/70 mt-2">
-              <span className="font-semibold text-[#F4D35E]">Risk‑free:</span> I’ll earn the next month.
-            </p>
+            <div className="text-sm text-white/80 mt-2 flex flex-col items-center gap-3">
+              <div className="flex items-center gap-3">
+                <span className="hidden sm:inline text-white/70">No commitment if we don’t ship value.</span>
+              </div>
+              {/*
+              <div className="text-white/80 text-sm">Trusted by growth‑stage companies in SaaS, e‑commerce, and professional services.</div>
+              <div className="flex flex-wrap justify-center gap-4 opacity-80">
+                <div className="h-8 w-24 bg-white/10 rounded" aria-label="SaaS Co. logo" />
+                <div className="h-8 w-24 bg-white/10 rounded" aria-label="E‑com Co. logo" />
+                <div className="h-8 w-24 bg-white/10 rounded" aria-label="Pro Services Co. logo" />
+                <div className="h-8 w-24 bg-white/10 rounded" aria-label="Healthcare Co. logo" />
+              </div>
+              */}
+              <div className="text-white/80 text-sm">Slots fill fast—secure yours today.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Results band (moved just under hero) */}
+      <div id="results" className="bg-[#415A77]/10 py-10 border-b border-[#415A77]/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">$10k/mo</div>
+              <div className="text-sm text-gray-600">Ops costs eliminated</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">2 wks</div>
+              <div className="text-sm text-gray-600">From idea → production</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">99.9%</div>
+              <div className="text-sm text-gray-600">Automation reliability</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">110+</div>
+              <div className="text-sm text-gray-600">Automations shipped</div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* About me quick card */}
-      <div className="bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-12 lg:mt-16 pb-8">
+      {/* About me quick card → Why me */}
+      <div className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-4">
             <Image src="/zakkann.jpg" alt="Zak Kann" width={56} height={56} className="rounded-full object-cover" />
             <div className="flex-1">
-              <p className="text-gray-900 font-semibold">Zak Kann</p>
-              <p className="text-gray-600 text-sm">Fractional CTO helping SMBs cut costs and ship faster with automation and internal tools.</p>
+              <p className="text-gray-900 font-semibold">Why work with me?</p>
+              <p className="text-gray-600 text-sm">PhD chemist turned SaaS founder. 10+ years building revenue‑driving software. AI automation specialist.</p>
             </div>
             <Link href="/about" className="text-blue-600 hover:text-blue-700 text-sm font-medium">About me →</Link>
           </div>
         </div>
       </div>
 
-      {/* How I work / Focus areas */}
+      {/* How It Works (moved under Why me) */}
+      <div id="process" className="bg-[#415A77]/10 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">So What&apos;s Next?</h2>
+            <p className="text-xl text-gray-700">A simple 3-step process to get you started</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#415A77] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Call</h3>
+              <p className="text-gray-600">Share your context, constraints, and outcomes. Confirm fit.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#415A77] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pilot</h3>
+              <p className="text-gray-600">Scope a quick‑win, ship it, document it. Plan next steps.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#415A77] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Ongoing</h3>
+              <p className="text-gray-600">Predictable weekly cadence, async updates, measurable results.</p>
+            </div>
+          </div>
+          <div className="mt-10 text-center">
+            <a
+              href="/book"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
+            >
+              Book My Free 30-Min Call — See what we can automate in a week
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* How I work / Focus areas (moved below process) */}
       <div className="bg-white py-16 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -65,30 +148,6 @@ export default function Home() {
                 <li>• Internal tools: dashboards, scripts, chat bots</li>
                 <li>• AI‑assisted workflows where it truly helps</li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Results band */}
-      <div id="results" className="bg-[#415A77]/10 py-10 border-b border-[#415A77]/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">$10k/mo</div>
-              <div className="text-sm text-gray-600">Ops costs eliminated</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">2 wks</div>
-              <div className="text-sm text-gray-600">From idea → production</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">99.9%</div>
-              <div className="text-sm text-gray-600">Automation reliability</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-extrabold text-[#1B263B]">20+ </div>
-              <div className="text-sm text-gray-600">Automations shipped</div>
             </div>
           </div>
         </div>
@@ -132,12 +191,8 @@ export default function Home() {
       <div id="services" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Hire Top CTO Talent Fractionally
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We&apos;re talking PhD-level expertise from Microsoft, Google, Apple, and more. These folks are looking to make an impact, innovate, and shake things up.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fractional CTO + Automation, focused on ROI</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Executive‑level strategy with hands‑on delivery. We prioritize measurable outcomes over vanity projects.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -171,6 +226,21 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Differentiation */}
+      <div className="bg-white py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Why not hire full‑time or go with an agency?</h3>
+            <p className="text-gray-700 mb-4">You get executive‑level strategy plus hands‑on delivery, without the hiring delays, overhead, or long agency retainers.</p>
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-700">
+              <li className="bg-white border border-gray-200 rounded-lg p-4">No bloat: focused on ROI, not billable hours.</li>
+              <li className="bg-white border border-gray-200 rounded-lg p-4">Fast: first automation live in 7 days or less.</li>
+              <li className="bg-white border border-gray-200 rounded-lg p-4">Maintainable: your team can own it long‑term.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Common automations */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,15 +250,16 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              'CRM updates and lead routing',
-              'Invoice generation and reconciliation',
-              'Weekly KPIs and reporting',
-              'Customer support triage and tagging',
-              'Data syncs between tools',
-              'Slack/Teams bots for ops',
+              { title: 'CRM updates and lead routing', sub: 'Never miss a lead; keep reps focused on selling.' },
+              { title: 'Invoice generation and reconciliation', sub: 'Cut billing errors and speed up cash collection.' },
+              { title: 'Weekly KPIs and reporting', sub: 'No more manual spreadsheets—see trends instantly.' },
+              { title: 'Customer support triage and tagging', sub: 'Route issues to the right person automatically.' },
+              { title: 'Data syncs between tools', sub: 'One source of truth, fewer copy‑paste mistakes.' },
+              { title: 'Slack/Teams bots for ops', sub: 'Trigger workflows from chat; faster, simpler ops.' },
             ].map((item) => (
-              <Link key={item} href="/blog" className="block bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-5 text-gray-800 transition-colors">
-                {item}
+              <Link key={item.title} href="/blog" className="block bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-5 text-gray-800 transition-colors">
+                <div className="font-semibold mb-1">{item.title}</div>
+                <div className="text-sm text-gray-600">{item.sub}</div>
               </Link>
             ))}
           </div>
@@ -225,7 +296,7 @@ export default function Home() {
       </div>
 
       {/* How It Works */}
-      <div className="bg-[#415A77]/10 py-16">
+      <div id="process" className="bg-[#415A77]/10 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">So What&apos;s Next?</h2>
@@ -236,14 +307,14 @@ export default function Home() {
               <div className="w-16 h-16 bg-[#415A77] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Book a Call</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Call</h3>
               <p className="text-gray-600">Share your context, constraints, and outcomes. Confirm fit.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#415A77] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">1‑Week Pilot</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pilot</h3>
               <p className="text-gray-600">Scope a quick‑win, ship it, document it. Plan next steps.</p>
             </div>
             <div className="text-center">
@@ -254,10 +325,18 @@ export default function Home() {
               <p className="text-gray-600">Predictable weekly cadence, async updates, measurable results.</p>
             </div>
           </div>
+          <div className="mt-10 text-center">
+            <a
+              href="/book"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
+            >
+              Book My Free 30-Min Call — See what we can automate in a week
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Testimonials 
+      {/* Testimonials */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -265,16 +344,21 @@ export default function Home() {
             <p className="text-xl text-gray-600">Trust built on results</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1,2,3].map((i) => (
-              <div key={i} className="bg-gray-50 p-6 rounded-lg border border-gray-200 h-full flex flex-col">
-                <p className="text-gray-800 italic mb-4">“Zak quickly identified the highest‑ROI automations and shipped them in days—not months.”</p>
-                <div className="mt-auto text-sm text-gray-600">VP Operations, SMB Retailer</div>
-              </div>
-            ))}
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 h-full flex flex-col">
+              <p className="text-gray-800 italic mb-4">“Zak shipped our first automation in five days and eliminated hours of weekly manual work.”</p>
+              <div className="mt-auto text-sm text-gray-600">COO, B2B Services</div>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 h-full flex flex-col">
+              <p className="text-gray-800 italic mb-4">“Clear ROI, strong security posture, and great communication. We extended immediately.”</p>
+              <div className="mt-auto text-sm text-gray-600">Head of Ops, E‑commerce</div>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 h-full flex flex-col">
+              <p className="text-gray-800 italic mb-4">“The automations paid for themselves in the first month.”</p>
+              <div className="mt-auto text-sm text-gray-600">Founder, SaaS</div>
+            </div>
           </div>
         </div>
       </div>
-      */}
 
       {/* Pricing Section */}
       <div id="pricing" className="bg-white py-16">
@@ -284,6 +368,11 @@ export default function Home() {
               All the advantages. A fraction of the cost.
             </h2>
             <p className="text-xl text-gray-700">Choose the engagement level that works for your business</p>
+            <div className="mt-4">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4D35E] text-[#1B263B] text-sm font-semibold">
+                7‑Day Risk‑Free Pilot
+              </span>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="border border-gray-200 rounded-lg p-8 relative">
@@ -303,7 +392,7 @@ export default function Home() {
                   href="/book"
                   className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors"
                 >
-                  Get Started
+                  Book My Free 30-Min Call
                 </a>
               </div>
             </div>
@@ -328,7 +417,7 @@ export default function Home() {
                   href="/book"
                   className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors"
                 >
-                  Get Started
+                  Book My Free 30-Min Call
                 </a>
               </div>
             </div>
@@ -350,7 +439,7 @@ export default function Home() {
                   href="/book"
                   className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors"
                 >
-                  Get Started
+                  Book My Free 30-Min Call
                 </a>
               </div>
             </div>
@@ -372,6 +461,38 @@ export default function Home() {
                 '@context': 'https://schema.org',
                 '@type': 'FAQPage',
                 mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: 'What does “risk‑free” mean?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'If we do not ship the agreed quick‑win automation in the first week, you owe nothing for the pilot.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'What’s the cost?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'See pricing below. Most SMBs start on the Half‑Time plan ($8K/mo) and see positive ROI within the first 30–60 days.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Do we need technical staff in‑house?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'No. We operate as your on‑demand CTO and delivery team. If you have in‑house engineers, we’ll integrate and upskill them.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'What’s your average ROI?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'Typical clients eliminate $5K–$15K/mo in operational costs and reclaim 10–30 hours/week of team time.',
+                    },
+                  },
                   {
                     '@type': 'Question',
                     name: 'Do you sign NDAs?',
@@ -410,16 +531,28 @@ export default function Home() {
           />
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">What does “risk‑free” mean?</h3>
+              <p className="text-gray-700">If we do not ship the agreed quick‑win automation in the first week, you owe nothing for the pilot.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">What’s the cost?</h3>
+              <p className="text-gray-700">See pricing below. Most SMBs start on the Half‑Time plan ($8K/mo) and see positive ROI within the first 30–60 days.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">Do we need technical staff in‑house?</h3>
+              <p className="text-gray-700">No. We operate as your on‑demand CTO and delivery team. If you have in‑house engineers, we’ll integrate and upskill them.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">What’s your average ROI?</h3>
+              <p className="text-gray-700">Typical clients eliminate $5K–$15K/mo in operational costs and reclaim 10–30 hours/week of team time.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-2">Do you sign NDAs?</h3>
               <p className="text-gray-700">Yes—ours or yours.</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-2">How do we measure ROI?</h3>
               <p className="text-gray-700">We baseline the current process time and error rate, then track the deltas after automation.</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">What tools do you work with?</h3>
-              <p className="text-gray-700">HubSpot/Salesforce, Airtable, Google Sheets, Zapier/Make, Slack/Teams, Postgres, and light Node/Python as needed.</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="font-semibold text-gray-900 mb-2">How fast can we start?</h3>
@@ -475,7 +608,7 @@ export default function Home() {
                 href="/book"
                 className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-[#E63946] hover:brightness-90 transition-colors"
               >
-                Book My Call
+              Book My Free 30-Min Call
               </a>
               <a
                 href="mailto:zak@zakkann.com?subject=New%20inquiry%20via%20zakkann.com"

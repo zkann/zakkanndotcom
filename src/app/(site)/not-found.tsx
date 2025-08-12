@@ -7,7 +7,7 @@ export default function NotFound() {
       <p className="text-gray-600 mb-6">The page you are looking for doesn’t exist or has been moved.</p>
       <div className="flex gap-4">
         <Link href="/" className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200">Go home</Link>
-        <Link href="/book" className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700">Book a call</Link>
+        <Link href="/book" className="px-4 py-2 rounded-md bg-[#E63946] text-white hover:brightness-90">Book My Free 30-Min Call</Link>
       </div>
     </div>
   );

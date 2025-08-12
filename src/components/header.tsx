@@ -32,7 +32,7 @@ export default function Header() {
               href="/book"
               className="ml-2 inline-flex items-center px-4 py-2 rounded-md bg-[#E63946] text-white text-sm font-semibold hover:brightness-90 transition-colors shadow-md"
             >
-              Book a call
+              Book My Free 30-Min Call
             </Link>
           </nav>
 
@@ -80,7 +80,7 @@ export default function Header() {
                 className="w-full text-left block px-3 py-2 rounded-md text-base font-semibold text-white bg-[#E63946] hover:brightness-90 shadow-sm"
                 onClick={() => setIsMobileOpen(false)}
               >
-                Book a call
+                Book My Free 30-Min Call
               </Link>
             </div>
           </div>
