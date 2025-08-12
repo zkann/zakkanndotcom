@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1B263B]">
+    <footer className="bg-primary">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 border-t border-[#415A77]/40 pt-8">
+        <div className="mt-12 border-t border-secondary/40 pt-8">
           <p className="text-base text-gray-300 text-center">
             &copy; {new Date().getFullYear()} Zak Kann, LLC. All rights reserved.
           </p>

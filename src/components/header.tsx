@@ -7,16 +7,16 @@ export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const toggleMobile = () => setIsMobileOpen((prev) => !prev);
   return (
-    <header className="sticky top-0 z-50 bg-[#1B263B]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1B263B]/90 border-b border-[#415A77] shadow-sm">
+    <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/90 border-b border-secondary shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-5">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-[#F4D35E] transition-colors">
+            <Link href="/" className="text-2xl font-bold text-white hover:text-highlight transition-colors">
               Zak Kann
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link href="/#services" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+            <Link href="/#deliverables" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
               Services
             </Link>
             <Link href="/about" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
@@ -30,7 +30,7 @@ export default function Header() {
             </Link>
             <Link
               href="/book"
-              className="ml-2 inline-flex items-center px-4 py-2 rounded-md bg-[#E63946] text-white text-sm font-semibold hover:brightness-90 transition-colors shadow-md"
+              className="ml-2 inline-flex items-center px-4 py-2 rounded-lg bg-cta text-white text-sm font-semibold hover:brightness-90 transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
             >
               Book my free 30-min call
             </Link>
@@ -41,7 +41,7 @@ export default function Header() {
             <button
               type="button"
               onClick={toggleMobile}
-              className="rounded-md p-2 inline-flex items-center justify-center text-gray-200 hover:text-white hover:bg-[#415A77]/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#F4D35E]"
+              className="rounded-md p-2 inline-flex items-center justify-center text-gray-200 hover:text-white hover:bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-highlight"
               aria-expanded={isMobileOpen}
               aria-controls="mobile-menu"
             >
@@ -61,23 +61,23 @@ export default function Header() {
 
         {/* Mobile menu panel */}
         {isMobileOpen && (
-          <div id="mobile-menu" className="md:hidden pb-4 animate-in fade-in slide-in-from-top-2 border-t border-[#415A77] bg-[#1B263B]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1B263B]/90">
+          <div id="mobile-menu" className="md:hidden pb-4 animate-in fade-in slide-in-from-top-2 border-t border-secondary bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/90">
             <div className="space-y-1">
-              <Link href="/#services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-[#415A77]/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/#deliverables" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Services
               </Link>
-              <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-[#415A77]/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 About
               </Link>
-              <Link href="/blog" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-[#415A77]/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/blog" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Blog
               </Link>
-              <Link href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-[#415A77]/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Contact
               </Link>
               <Link
                 href="/book"
-                className="w-full text-left block px-3 py-2 rounded-md text-base font-semibold text-white bg-[#E63946] hover:brightness-90 shadow-sm"
+                className="w-full text-left block px-3 py-2 rounded-md text-base font-semibold text-white bg-cta hover:brightness-90 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
                 onClick={() => setIsMobileOpen(false)}
               >
                 Book my free 30-min call

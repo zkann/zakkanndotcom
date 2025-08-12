@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Tailwind v4 theme tokens for custom colors */
+@theme {
+  --color-primary: #1B263B;
+  --color-secondary: #415A77;
+  --color-cta: #E63946;
+  --color-highlight: #F4D35E;
+  --color-text: #1C1C1E;
+}
+
 
 /* Blog typography tweaks */
 :root {
