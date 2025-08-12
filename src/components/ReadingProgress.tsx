@@ -18,7 +18,7 @@ export default function ReadingProgress() {
 
   return (
     <div aria-hidden className="fixed top-0 left-0 right-0 z-40 h-1 bg-gray-200/60">
-      <div className="h-full bg-blue-600 transition-[width] duration-150" style={{ width: `${progress}%` }} />
+      <div className="h-full bg-secondary transition-[width] duration-150" style={{ width: `${progress}%` }} />
     </div>
   );
 }

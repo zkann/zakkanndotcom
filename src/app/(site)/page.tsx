@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white [text-wrap:balance]">
               <span className="block">
                 AI aut
                 <span className="relative inline-flex items-center justify-center align-baseline text-highlight text-[0.8em] leading-none animate-spin [animation-duration:5.5s]" aria-hidden="true">⚙️</span>
@@ -27,12 +27,14 @@ export default function Home() {
                 mation that <span className="text-highlight">pays for itself</span>
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed md:leading-8">
+            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed md:leading-8">
               We deliver AI-powered automations that cut costs, remove bottlenecks, and <span className="text-highlight">accelerate SMBs</span> without hiring more people.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/book"
+                data-event="cta_click"
+                data-location="hero"
                 className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors shadow-sm w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
               >
                 📅 Book my free 30-min call
@@ -102,7 +104,7 @@ export default function Home() {
             />
           </div>
           <div className="text-center mb-12 md:mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">The cost of manual processes is crushing SMBs</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">The cost of manual processes is crushing SMBs</h2>
           </div>
 
 
@@ -142,7 +144,7 @@ export default function Home() {
       <div id="deliverables" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Automation that pays for itself from day one</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Automation that pays for itself from day one</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
@@ -169,7 +171,7 @@ export default function Home() {
       <div id="process" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">How it works</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900">How it works</h2>
           </div>
           {/* New single-SVG timeline */}
           <div className="hidden md:block">
@@ -198,6 +200,8 @@ export default function Home() {
           <div className="mt-10 text-center">
             <a
               href="/book"
+              data-event="cta_click"
+              data-location="process"
               className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-white"
             >
               📅 Book my free 30-min call
@@ -210,7 +214,7 @@ export default function Home() {
       <div id="use-cases" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Practical automations that pay for themselves</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Practical automations that pay for themselves</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -254,7 +258,16 @@ export default function Home() {
               // Use internal /book redirect so we don't hardcode Calendly slug; Next.js will forward the query params
               const calendly = `/book?utm_source=site&utm_medium=usecase-card&utm_campaign=booking&utm_content=${item.slug}&a1=${encodeURIComponent(item.a1)}`
               return (
-                <Link key={item.title} href={calendly} className="group block rounded-2xl bg-white p-6 text-slate-900 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300">
+                <Link
+                  key={item.title}
+                  href={calendly}
+                  data-event="usecase_click"
+                  data-location="use-cases"
+                  data-slug={item.slug}
+                  data-title={item.title}
+                  data-a1={item.a1}
+                  className="group block rounded-2xl bg-white p-6 text-slate-900 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300"
+                >
                   <div className="flex items-start justify-between gap-2">
                     <div className="font-semibold">{item.title}</div>
                     <svg aria-hidden="true" className="h-4 w-4 text-slate-400 transition group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
@@ -277,7 +290,7 @@ export default function Home() {
       <div id="pricing" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Your automation should pay for itself — fast</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Your automation should pay for itself — fast</h2>
           </div>
           <div className="max-w-2xl mx-auto">
             <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
@@ -290,6 +303,8 @@ export default function Home() {
                 </ul>
                 <a
                   href={`/book?utm_source=site&utm_medium=pricing-card`}
+                  data-event="cta_click"
+                  data-location="pricing"
                   className="inline-flex items-center justify-center w-full px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-white"
                 >
                   Book your free call
@@ -305,7 +320,7 @@ export default function Home() {
       <div id="faq" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Frequently asked questions</h2>
+            <h2 className="text-title md:text-4xl font-bold text-slate-900">Frequently asked questions</h2>
           </div>
           <script
             type="application/ld+json"
@@ -369,7 +384,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
               <h3 className="text-lg font-semibold text-slate-900 mb-2">What does pricing look like for my business?</h3>
-              <p className="text-slate-700">Our projects start at around $3K, but the real value lies in the ROI we deliver. Most SMB clients see $5K–$15K/month in operating cost savings and reclaim 10–20 hours/week of manual effort. <a href="/book" className="text-cta underline underline-offset-4">Book a free call</a>, and we&#39;ll assess your opportunities and provide a custom plan &amp; quote.</p>
+              <p className="text-slate-700">Our projects start at around $3K, but the real value lies in the ROI we deliver. Most SMB clients see $5K–$15K/month in operating cost savings and reclaim 10–20 hours/week of manual effort. <a href="/book" data-event="cta_click" data-location="faq" className="text-cta underline underline-offset-4">Book a free call</a>, and we&#39;ll assess your opportunities and provide a custom plan &amp; quote.</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
               <h3 className="text-lg font-semibold text-slate-900 mb-2">How quickly can I expect results?</h3>
@@ -413,10 +428,10 @@ export default function Home() {
       <div id="contact" className="bg-primary">
         <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to cut costs & move faster?</h2>
+            <h2 className="text-title md:text-4xl font-bold text-white [text-wrap:balance]">Ready to cut costs & move faster?</h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 2 weeks or less.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <a href="/book" className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary">📅 Book my free 30-min call</a>
+              <a href="/book" data-event="cta_click" data-location="final" className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary">📅 Book my free 30-min call</a>
             </div>
             <p className="text-sm text-white/70">⚡ Slots fill quickly. Secure yours today.</p>
           </div>

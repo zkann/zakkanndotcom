@@ -16,20 +16,22 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link href="/#deliverables" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+            <Link href="/#deliverables" data-event="nav_click" data-location="header" data-title="Services" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
               Services
             </Link>
-            <Link href="/about" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+            <Link href="/about" data-event="nav_click" data-location="header" data-title="About" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
               About
             </Link>
-            <Link href="/blog" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+            <Link href="/blog" data-event="nav_click" data-location="header" data-title="Blog" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
               Blog
             </Link>
-            <Link href="/#contact" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+            <Link href="/#contact" data-event="nav_click" data-location="header" data-title="Contact" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
               Contact
             </Link>
             <Link
               href="/book"
+              data-event="cta_click"
+              data-location="header"
               className="ml-2 inline-flex items-center px-4 py-2 rounded-lg bg-cta text-white text-sm font-semibold hover:brightness-90 transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
             >
               Book my free 30-min call
@@ -63,20 +65,22 @@ export default function Header() {
         {isMobileOpen && (
           <div id="mobile-menu" className="md:hidden pb-4 animate-in fade-in slide-in-from-top-2 border-t border-secondary bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/90">
             <div className="space-y-1">
-              <Link href="/#deliverables" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/#deliverables" data-event="nav_click" data-location="header-mobile" data-title="Services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Services
               </Link>
-              <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/about" data-event="nav_click" data-location="header-mobile" data-title="About" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 About
               </Link>
-              <Link href="/blog" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/blog" data-event="nav_click" data-location="header-mobile" data-title="Blog" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Blog
               </Link>
-              <Link href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
+              <Link href="/#contact" data-event="nav_click" data-location="header-mobile" data-title="Contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary/40" onClick={() => setIsMobileOpen(false)}>
                 Contact
               </Link>
               <Link
                 href="/book"
+                data-event="cta_click"
+                data-location="header-mobile"
                 className="w-full text-left block px-3 py-2 rounded-md text-base font-semibold text-white bg-cta hover:brightness-90 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
                 onClick={() => setIsMobileOpen(false)}
               >

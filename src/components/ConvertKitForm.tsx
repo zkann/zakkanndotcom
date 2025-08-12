@@ -7,6 +7,7 @@ type ConvertKitFormProps = {
   placeholder?: string;
   className?: string;
   includeFirstName?: boolean;
+  tagIds?: string[];
 };
 
 export default function ConvertKitForm({
@@ -16,6 +17,7 @@ export default function ConvertKitForm({
   placeholder = 'Enter your email',
   className,
   includeFirstName = true,
+  tagIds,
 }: ConvertKitFormProps) {
   const formId = formIdProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID;
   const uid = uidProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_UID;
@@ -38,6 +40,9 @@ export default function ConvertKitForm({
       className={className}
     >
       <div className="flex flex-col gap-2">
+        {Array.isArray(tagIds) && tagIds.map((id) => (
+          <input key={id} type="hidden" name="tags[]" value={id} />
+        ))}
         {includeFirstName && (
           <input
             type="text"
@@ -57,7 +62,7 @@ export default function ConvertKitForm({
         />
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="inline-flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary"
         >
           {submitLabel}
         </button>

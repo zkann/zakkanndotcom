@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zakkann.com"),
@@ -79,6 +80,7 @@ export default function SiteLayout({
         {children}
       </main>
       <Footer />
+      <AnalyticsEvents />
     </div>
   );
 } 

@@ -7,9 +7,10 @@ type TagFiltersProps = {
   tags: string[];
   activeTag?: string;
   initialVisible?: number;
+  search?: string;
 };
 
-export default function TagFilters({ tags, activeTag, initialVisible = 5 }: TagFiltersProps) {
+export default function TagFilters({ tags, activeTag, initialVisible = 5, search }: TagFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const { visibleTags, shouldShowToggle } = useMemo(() => {
@@ -30,30 +31,45 @@ export default function TagFilters({ tags, activeTag, initialVisible = 5 }: TagF
   }, [tags, activeTag, initialVisible, isExpanded]);
 
   return (
-    <div className="flex flex-wrap gap-2 max-w-full">
-      {visibleTags.map((t) => (
-        <Link
-          key={t}
-          href={t === activeTag ? "/blog" : `/blog?tag=${encodeURIComponent(t)}`}
-          className={`px-3 py-1 rounded-full text-sm font-medium border ${
-            t === activeTag
-              ? "bg-blue-600 text-white border-blue-600"
-              : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
-          }`}
-        >
-          {t}
-        </Link>
-      ))}
+    <div className="max-w-full">
+      <div className="flex flex-wrap gap-2">
+        {visibleTags.map((t) => (
+          <Link
+            key={t}
+            href={(() => {
+              if (t === activeTag) {
+                // Clicking the active tag clears it; preserve current search if present
+                return search && search.length > 0
+                  ? `/blog?${new URLSearchParams({ search }).toString()}`
+                  : "/blog";
+              }
+              const params = new URLSearchParams();
+              params.set("tag", t);
+              if (search && search.length > 0) params.set("search", search);
+              return `/blog?${params.toString()}`;
+            })()}
+            className={`px-3 py-1 rounded-full text-sm font-medium border ${
+              t === activeTag
+                ? "bg-secondary text-white border-secondary"
+                : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
+            }`}
+          >
+            {t}
+          </Link>
+        ))}
+      </div>
 
       {shouldShowToggle && (
-        <button
-          type="button"
-          onClick={() => setIsExpanded((prev) => !prev)}
-          className="p-0 text-sm font-medium text-blue-700 hover:text-blue-800 hover:underline bg-transparent border-0"
-          aria-expanded={isExpanded}
-        >
-          {isExpanded ? "Show less" : "Show all"}
-        </button>
+        <div className="mt-2">
+          <button
+            type="button"
+            onClick={() => setIsExpanded((prev) => !prev)}
+            className="p-0 text-sm font-medium text-secondary hover:opacity-80 hover:underline bg-transparent border-0"
+            aria-expanded={isExpanded}
+          >
+            {isExpanded ? "Show less" : "Show all"}
+          </button>
+        </div>
       )}
     </div>
   );

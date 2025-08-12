@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       <div className="max-w-3xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-6">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6 [text-wrap:balance]">
           Helping SMBs automate, accelerate, and win — with AI that pays for itself
         </h1>
         <div className="mb-6">
@@ -25,7 +25,7 @@ export default function AboutPage() {
         </p>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">My background</h2>
+          <h2 className="text-title font-bold text-slate-900 mb-4">My background</h2>
           <ul className="list-disc list-inside text-slate-700 space-y-2">
             <li>Former SaaS Founder — Scaled products in competitive industries, from concept to acquisition.</li>
             <li>Data Science &amp; Engineering — PhD in computational chemistry with experience in analytics-heavy, high-precision industries.</li>
@@ -34,14 +34,14 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">Why I focus on SMBs</h2>
+          <h2 className="text-title font-bold text-slate-900 mb-4">Why I focus on SMBs</h2>
           <p className="text-lg text-slate-700 leading-relaxed">
             Large companies have the resources to adopt new technology quickly. SMBs don’t — and they’re the ones who benefit most from automation. I bridge that gap, bringing enterprise-grade automation capabilities to businesses that need them the most.
           </p>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">My approach</h2>
+          <h2 className="text-title font-bold text-slate-900 mb-4">My approach</h2>
           <ol className="list-decimal list-inside text-slate-700 space-y-2">
             <li>
               <span className="font-semibold">Discovery</span> — Identify your biggest automation opportunities in a free strategy call.
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">The results</h2>
+          <h2 className="text-title font-bold text-slate-900 mb-4">The results</h2>
           <p className="text-lg text-slate-700 leading-relaxed mb-4">Clients I work with routinely:</p>
           <ul className="list-disc list-inside text-slate-700 space-y-2">
             <li>Eliminate $5K–$15K/mo in ops costs.</li>
@@ -68,6 +68,8 @@ export default function AboutPage() {
         <div className="mt-12">
           <a
             href="/book"
+            data-event="cta_click"
+            data-location="about"
             className="inline-flex items-center px-6 py-3 text-base font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-white"
           >
             📅 Let’s talk automation

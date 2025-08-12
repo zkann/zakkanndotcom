@@ -100,7 +100,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         />
         <Link
           href="/blog"
-          className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8"
+          className="inline-flex items-center text-secondary hover:opacity-80 mb-8"
         >
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -145,7 +145,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 {post.tags.map((tag: string) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors"
+                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
                   >
                     {tag}
                   </span>
@@ -170,17 +170,27 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Share links */}
           <div className="mt-8 flex gap-4">
             <a
-              className="text-blue-600 hover:text-blue-700"
+              className="text-secondary hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"
+              data-event="share_click"
+              data-location="post"
+              data-title={post.title}
+              data-slug={post.slug}
+              data-platform="twitter"
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://zakkann.com' + post.url)}`}
             >
               Share on Twitter
             </a>
             <a
-              className="text-blue-600 hover:text-blue-700"
+              className="text-secondary hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"
+              data-event="share_click"
+              data-location="post"
+              data-title={post.title}
+              data-slug={post.slug}
+              data-platform="linkedin"
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://zakkann.com' + post.url)}`}
             >
               Share on LinkedIn
@@ -190,7 +200,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {post.tags && post.tags.length > 0 && (
             <div className="mt-10 pt-6 border-t border-gray-100 flex flex-wrap gap-2">
               {post.tags.map((tag: string) => (
-                <Link key={tag} href={`/blog?tag=${encodeURIComponent(tag)}`} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">
+                <Link key={tag} href={`/blog?tag=${encodeURIComponent(tag)}`} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors">
                   {tag}
                 </Link>
               ))}
@@ -199,12 +209,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
           <nav className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between gap-4">
             {previousPost ? (
-              <Link href={previousPost.url} className="text-blue-600 hover:text-blue-700">
+              <Link href={previousPost.url} className="text-secondary hover:opacity-80">
                 ← {previousPost.title}
               </Link>
             ) : <span />}
             {nextPost ? (
-              <Link href={nextPost.url} className="text-blue-600 hover:text-blue-700">
+              <Link href={nextPost.url} className="text-secondary hover:opacity-80">
                 {nextPost.title} →
               </Link>
             ) : <span />}
@@ -224,7 +234,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                         <span className="mx-2 text-gray-300">•</span>
                         <span>{r.readingTimeMinutes} min read</span>
                       </div>
-                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 leading-snug">{r.title}</h3>
+                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-secondary leading-snug">{r.title}</h3>
                       <p className="mt-1 text-gray-700 text-sm line-clamp-3">{r.excerpt}</p>
                     </div>
                   </Link>

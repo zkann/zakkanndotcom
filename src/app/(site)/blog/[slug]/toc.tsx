@@ -42,7 +42,7 @@ export default function Toc() {
                 href={`#${h.id}`}
                 className={
                   `block truncate transition-colors ${
-                    activeId === h.id ? 'text-blue-700 font-medium' : 'text-gray-700 hover:text-blue-700'
+                    activeId === h.id ? 'text-secondary font-medium' : 'text-gray-700 hover:text-secondary'
                   } ${h.level === 3 ? 'pl-4' : ''}`
                 }
               >

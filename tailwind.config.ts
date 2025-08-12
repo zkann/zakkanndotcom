@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'display': ['2.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'title': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'eyebrow': ['0.8125rem', { lineHeight: '1.3', letterSpacing: '0.06em', textTransform: 'uppercase' as any }],
+      },
       colors: {
         brand: {
           50: '#eff6ff',
