@@ -20,7 +20,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white">
-              <span className="block">AI Automation That <span className="text-[#F4D35E]">Pays for Itself</span></span>
+              <span className="block">
+                AI aut
+                <span className="relative inline-flex items-center justify-center align-baseline text-[#F4D35E] text-[0.8em] leading-none animate-spin [animation-duration:5.5s]" aria-hidden="true">⚙️</span>
+                <span className="sr-only">o</span>
+                mati
+                <span className="relative inline-flex items-center justify-center align-baseline text-[#F4D35E] text-[0.8em] leading-none animate-spin [animation-duration:5.5s]" aria-hidden="true">⚙️</span>
+                <span className="sr-only">o</span>
+                n that <span className="text-[#F4D35E]">pays for itself</span>
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed md:leading-8">
               We deliver AI-powered automations that cut costs, remove bottlenecks, and <span className="text-[#F4D35E]">accelerate SMBs</span> without hiring more people.
