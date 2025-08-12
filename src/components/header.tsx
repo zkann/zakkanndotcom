@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import Logo from '@/components/Logo';
 
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -11,8 +12,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-5">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-highlight transition-colors">
-              Zak Kann
+            <Link href="/" aria-label="Home" className="flex items-center gap-2 group">
+              <Logo size={40} className="shrink-0" />
+              <span className="text-2xl font-bold text-white group-hover:text-highlight transition-colors">Zak Kann</span>
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8 items-center">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
@@ -6,8 +7,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-white">
-              Zak Kann
+            <Link href="/" className="inline-flex items-center gap-2">
+              <Logo size={40} />
+              <span className="text-2xl font-bold text-white">Zak Kann</span>
             </Link>
             <p className="text-gray-200 text-base">
               AI automation that pays for itself. Cut costs, remove bottlenecks, and accelerate SMBs—without hiring more people.
