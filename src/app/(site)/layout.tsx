@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -40,6 +41,8 @@ export default function SiteLayout({
   return (
     <div className="min-h-screen flex flex-col">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-white px-3 py-2 rounded">Skip to content</a>
+      {/* ConvertKit JS (optional but enables inline success handling and analytics) */}
+      <Script src="https://f.convertkit.com/ckjs/ck.5.js" strategy="afterInteractive" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy policy',
   description: 'How we collect, use, and protect your data.',
 };
 

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Terms of Service',
+  title: 'Terms of service',
   description: 'Terms and conditions for using our services and website.',
 };
 

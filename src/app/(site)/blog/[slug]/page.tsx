@@ -7,6 +7,8 @@ import Toc from './toc';
 import ReadingProgress from '@/components/ReadingProgress';
 import type { Metadata } from 'next';
 import { compareDesc } from 'date-fns';
+import { Fragment } from 'react';
+import PostThumbnail from '@/components/PostThumbnail';
 
 export const revalidate = 3600; // ISR with 1-hour revalidation
 
@@ -23,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = post.title;
   const description = post.excerpt;
   const url = `https://zakkann.com${post.url}`;
+  const ogImageUrl = post.ogImage || `${post.url}/opengraph-image.png`;
   return {
     title,
     description,
@@ -32,11 +35,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       url,
       type: 'article',
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [ogImageUrl],
     },
   };
 }
@@ -55,6 +67,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const previousPost = currentIndex > 0 ? postsSorted[currentIndex - 1] : null;
   const nextPost = currentIndex < postsSorted.length - 1 ? postsSorted[currentIndex + 1] : null;
   const updatedDate = post.updated || post.date;
+  const related = postsSorted
+    .filter((p) => p.slug !== post.slug)
+    .filter((p) => p.tags?.some((t) => post.tags?.includes(t)))
+    .slice(0, 3);
 
   return (
     <div className="bg-white">
@@ -89,7 +105,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Back to Blog
+          Back to blog
         </Link>
 
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-8 relative">
@@ -193,6 +209,29 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </Link>
             ) : <span />}
           </nav>
+          {related.length > 0 && (
+            <section className="mt-12">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">More like this</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {related.map((r) => (
+                  <Link key={r.slug} href={r.url} className="group block rounded-xl overflow-hidden border bg-white hover:shadow-md transition-shadow">
+                    <PostThumbnail src={r.ogImage} alt="" className="aspect-[4/3]" />
+                    <div className="p-5">
+                      <div className="text-xs text-gray-500 mb-1">
+                        <time dateTime={r.date} className="font-medium">
+                          {new Date(r.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                        </time>
+                        <span className="mx-2 text-gray-300">•</span>
+                        <span>{r.readingTimeMinutes} min read</span>
+                      </div>
+                      <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 leading-snug">{r.title}</h3>
+                      <p className="mt-1 text-gray-700 text-sm line-clamp-3">{r.excerpt}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
           </article>
           <div className="hidden lg:block">
             <Toc />
