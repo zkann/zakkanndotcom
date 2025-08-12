@@ -10,8 +10,7 @@ export default function Footer() {
               Zak Kann
             </Link>
             <p className="text-gray-200 text-base">
-              AI Automation for SMBs that want to win.
-              Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec.
+              AI automation that pays for itself. Cut costs, remove bottlenecks, and accelerate SMBs—without hiring more people.
             </p>
             <div className="flex space-x-6">
               <a href="https://linkedin.com/in/zkann" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
@@ -79,11 +78,11 @@ export default function Footer() {
                       Blog
                     </Link>
                   </li>
-                   <li>
-                     <Link href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
-                       Book my free 30-min call
-                     </Link>
-                   </li>
+                  <li>
+                    <Link href="/feed.xml" className="text-base text-gray-200 hover:text-white transition-colors">
+                      RSS
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/privacy" className="text-base text-gray-200 hover:text-white transition-colors">
                       Privacy policy
@@ -103,18 +102,18 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold text-gray-300 tracking-wider">
                   Contact
                 </h3>
-                <ul className="mt-4 space-y-4">
-                  <li>
-                    <a href="mailto:zak@zakkann.com?subject=New%20inquiry%20via%20zakkann.com" className="text-base text-gray-200 hover:text-white transition-colors">
-                      zak@zakkann.com
-                    </a>
-                  </li>
+                 <ul className="mt-4 space-y-4">
                    <li>
-                     <Link href="/book" className="text-base text-gray-200 hover:text-white transition-colors">
+                     <a href="mailto:zak@zakkann.com?subject=New%20inquiry%20via%20zakkann.com" className="text-base text-gray-200 hover:text-white transition-colors">
+                       zak@zakkann.com
+                     </a>
+                   </li>
+                   <li>
+                     <Link href="/book?utm_source=footer&utm_medium=cta&utm_campaign=footer-nav" className="text-base text-gray-200 hover:text-white transition-colors">
                        Book my free 30-min call
                      </Link>
                    </li>
-                </ul>
+                 </ul>
               </div>
             </div>
           </div>
@@ -122,7 +121,7 @@ export default function Footer() {
         
         <div className="mt-12 border-t border-[#415A77]/40 pt-8">
           <p className="text-base text-gray-300 text-center">
-            &copy; {new Date().getFullYear()} Zak Kann. All rights reserved.
+            &copy; {new Date().getFullYear()} Zak Kann, LLC. All rights reserved.
           </p>
         </div>
       </div>
