@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const metadata = {
   title: 'About – Zak Kann',
   description:
-    'Founder and fractional CTO helping SMBs cut costs and ship faster with AI-driven automation.',
+    'Founder and AI automation consultant helping SMBs cut costs and ship faster with automation and internal tools.',
 };
 
 export default function AboutPage() {
@@ -21,8 +21,7 @@ export default function AboutPage() {
           for startups and growth-stage companies.
         </p>
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
-          Today I partner with SMBs as a fractional CTO—owning technical strategy and delivering
-          hands-on execution to reduce operating costs, eliminate bottlenecks, and ship faster.
+          Today I partner with SMBs to design and deliver AI automations and internal tools—reducing operating costs, eliminating bottlenecks, and shipping faster.
         </p>
 
         <div className="flex flex-wrap gap-4 mt-8">

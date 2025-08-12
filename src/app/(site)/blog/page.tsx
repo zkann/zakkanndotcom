@@ -21,7 +21,7 @@ function BlogList({ tag, search }: { tag?: string; search?: string }) {
             Blog
           </h1>
           <p className="mt-4 text-xl text-gray-600">
-            Insights and strategies from a fractional CTO perspective
+            Insights and strategies from an AI automation perspective
           </p>
         </div>
 

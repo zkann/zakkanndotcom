@@ -147,7 +147,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <Image src="/zakkann.jpg" alt="Zak Kann" width={56} height={56} className="rounded-full object-cover" />
             <div>
               <p className="font-semibold text-gray-900">About the author</p>
-              <p className="text-gray-700 text-sm">Zak Kann is a fractional CTO helping SMBs cut costs and ship faster with automation, data pipelines, and internal tools.</p>
+              <p className="text-gray-700 text-sm">Zak Kann helps SMBs cut costs and ship faster with AI automation, data pipelines, and internal tools.</p>
             </div>
           </div>
 

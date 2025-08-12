@@ -13,7 +13,7 @@ export async function generateResponse(prompt: string) {
 }
 
 export async function generateBlogContent(topic: string) {
-  const prompt = `As a fractional CTO, write a professional blog post about ${topic}. 
+  const prompt = `As an AI automation consultant, write a professional blog post about ${topic}. 
   The post should be informative, actionable, and relevant to startups and growing companies. 
   Include practical advice and real-world examples. Keep it between 500-800 words.`;
 
@@ -28,7 +28,7 @@ export async function generateBlogContent(topic: string) {
 }
 
 export async function generateTechConsultation(query: string) {
-  const prompt = `You are an experienced fractional CTO providing technical consultation. 
+  const prompt = `You are an experienced AI automation consultant providing technical consultation. 
   Answer the following question with practical, actionable advice: ${query}
   
   Focus on:

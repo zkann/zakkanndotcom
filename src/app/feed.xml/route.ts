@@ -23,7 +23,7 @@ export async function GET() {
     <channel>
       <title>Zak Kann – Blog</title>
       <link>${site}/blog</link>
-      <description>Fractional CTO, automation, and internal tools</description>
+      <description>AI automation and internal tools for SMBs</description>
       ${items}
     </channel>
   </rss>`;

@@ -25,7 +25,7 @@ export default function OgImage() {
         }}
       >
         <div style={{ fontSize: 52, opacity: 0.9 }}>Zak Kann</div>
-        <div style={{ marginTop: 12 }}>Fractional CTO + Automation</div>
+        <div style={{ marginTop: 12 }}>AI Automation + Internal Tools</div>
         <div style={{ fontSize: 28, opacity: 0.9, marginTop: 20 }}>zakkann.com</div>
       </div>
     ),

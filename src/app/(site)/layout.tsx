@@ -5,18 +5,18 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://zakkann.com"),
   title: {
-    default: "Zak Kann – Fractional CTO & AI Automation",
+    default: "Zak Kann – AI Automation & Internal Tools",
     template: "%s | Zak Kann",
   },
   description:
-    "Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec. Fractional CTO & AI automation for SMBs. Small business automation consulting, fractional CTO services, AI automation for SMBs.",
+    "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools—without hiring a full-time tech exec. Project-based pricing.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Fractional CTO & AI Automation – Zak Kann",
+    title: "AI Automation & Internal Tools – Zak Kann",
     description:
-      "Start risk‑free. Automation and internal tools your team can maintain. Small business automation consulting, fractional CTO services.",
+      "Start risk‑free. Automation and internal tools your team can maintain. Project-based pricing.",
     url: "https://zakkann.com",
     siteName: "Zak Kann",
     type: "website",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fractional CTO & AI Automation – Zak Kann",
+    title: "AI Automation & Internal Tools – Zak Kann",
     description:
-      "Cut costs and ship faster with automation and technical leadership for SMBs.",
+      "Cut costs and ship faster with AI automation and internal tools for SMBs.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },

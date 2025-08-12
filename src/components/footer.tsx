@@ -10,7 +10,7 @@ export default function Footer() {
               Zak Kann
             </Link>
             <p className="text-gray-200 text-base">
-              Fractional CTO & AI-Driven Automation for SMBs that want to win. 
+              AI Automation for SMBs that want to win.
               Cut costs, crush bottlenecks and ship faster—without hiring a full-time tech exec.
             </p>
             <div className="flex space-x-6">
@@ -54,12 +54,12 @@ export default function Footer() {
                   </li>
                   <li>
                     <a href="#services" className="text-base text-gray-200 hover:text-white transition-colors">
-                      On-Demand CTO
+                      Automation Delivery
                     </a>
                   </li>
                   <li>
                     <a href="#pricing" className="text-base text-gray-200 hover:text-white transition-colors">
-                      Pricing & Packages
+                      Project Pricing
                     </a>
                   </li>
                 </ul>
