@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import HowItWorks from '@/components/HowItWorks';
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
                 href="/book"
                 className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-xl text-white bg-[#E63946] hover:brightness-90 transition-colors shadow-sm w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946] focus-visible:ring-offset-[#1B263B]"
               >
-                📅 Book my free 30-min call
+                📅 Book My Free 30-Min Call
               </a>
             </div>
             <div className="text-sm text-white/80 mt-4">Slots fill fast, so secure yours today.</div>
@@ -53,7 +54,7 @@ export default function Home() {
       </div>
       
       {/* Results band (moved just under hero) */}
-      <div id="results" className="bg-slate-50 py-10 border-y border-slate-200/70">
+      <div id="results" className="bg-slate-50 py-12 border-y border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
@@ -95,7 +96,7 @@ export default function Home() {
               }}
             />
           </div>
-          <div className="text-center mb-14">
+          <div className="text-center mb-12 md:mb-14">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-[#1B263B]">The Cost of Manual Processes is Crushing SMBs</h2>
           </div>
 
@@ -137,7 +138,7 @@ export default function Home() {
       </div>
 
       {/* 3. What You’ll Get (Deliverables) */}
-      <div className="bg-slate-50 py-16">
+      <div className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automation That Pays for Itself From Day One</h2>
@@ -164,42 +165,16 @@ export default function Home() {
       </div>
 
       {/* 4. How It Works – 3 Steps */}
-      <div id="process" className="bg-white py-16">
+      <div id="process" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">How It Works</h2>
           </div>
-          {/* Visual diagram (desktop) */}
-          <div className="relative hidden md:flex items-start justify-between max-w-5xl mx-auto">
-            {/* Node 1 */}
-            <div className="flex w-56 flex-col items-center text-center">
-              <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#415A77] text-white shadow-sm ring-1 ring-black/5">1</div>
-              <h3 className="text-lg font-semibold text-slate-900">Book a Free Call</h3>
-              <p className="mt-1 text-slate-600 leading-6">Identify automation opportunities</p>
-            </div>
-            {/* Connector 1 */}
-            <div className="relative mx-4 flex-1">
-              <div className="mt-6 h-px w-full bg-slate-300" />
-              <span className="absolute right-0 top-5 block h-3 w-3 rotate-45 border-r border-t border-slate-300" aria-hidden="true" />
-            </div>
-            {/* Node 2 */}
-            <div className="flex w-56 flex-col items-center text-center">
-              <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#415A77] text-white shadow-sm ring-1 ring-black/5">2</div>
-              <h3 className="text-lg font-semibold text-slate-900">1‑Week Pilot</h3>
-              <p className="mt-1 text-slate-600 leading-6">Build your first automation</p>
-            </div>
-            {/* Connector 2 */}
-            <div className="relative mx-4 flex-1">
-              <div className="mt-6 h-px w-full bg-slate-300" />
-              <span className="absolute right-0 top-5 block h-3 w-3 rotate-45 border-r border-t border-slate-300" aria-hidden="true" />
-            </div>
-            {/* Node 3 */}
-            <div className="flex w-56 flex-col items-center text-center">
-              <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#415A77] text-white shadow-sm ring-1 ring-black/5">3</div>
-              <h3 className="text-lg font-semibold text-slate-900">Scale & Optimize</h3>
-              <p className="mt-1 text-slate-600 leading-6">Continuous improvements</p>
-            </div>
+          {/* New single-SVG timeline */}
+          <div className="hidden md:block">
+            <HowItWorks />
           </div>
+          {/* Mobile fallback: simple stacked steps (unchanged) */}
 
           {/* Stacked steps (mobile) */}
           <div className="md:hidden space-y-6">
@@ -231,28 +206,62 @@ export default function Home() {
       </div>
 
       {/* 5. Common SMB Automations */}
-      <div className="bg-slate-50 py-16">
+      <div className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Practical Automations That Pay for Themselves</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'CRM updates & lead routing', sub: 'Keep reps selling while leads are automatically routed and enriched.' },
-              { title: 'Weekly KPI dashboards', sub: 'Real-time visibility without manual spreadsheets.' },
-              { title: 'Invoice generation & reconciliation', sub: 'Reduce errors and accelerate cash collection.' },
-              { title: 'Customer support triage & tagging', sub: 'Route issues to the right person, fast.' },
-              { title: 'Data syncs between tools', sub: 'One source of truth with fewer copy-paste mistakes.' },
-              { title: 'Slack/Teams workflow bots', sub: 'Trigger workflows from chat to speed up ops.' },
-            ].map((item) => (
-              <Link key={item.title} href="/blog" className="group block rounded-xl bg-white p-5 text-gray-800 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="font-semibold">{item.title}</div>
-                  <svg aria-hidden="true" className="h-4 w-4 text-slate-400 transition group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
-                </div>
-                <div className="mt-1.5 text-sm text-gray-600 leading-6">{item.sub}</div>
-              </Link>
-            ))}
+              {
+                title: 'CRM updates & lead routing',
+                sub: 'Keep reps selling while leads are automatically routed and enriched.',
+                slug: 'crm-updates-lead-routing',
+                a1: `Use case: CRM updates & lead routing`,
+              },
+              {
+                title: 'Weekly KPI dashboards',
+                sub: 'Real-time visibility without manual spreadsheets.',
+                slug: 'weekly-kpi-dashboards',
+                a1: `Use case: Weekly KPI dashboards`,
+              },
+              {
+                title: 'Invoice generation & reconciliation',
+                sub: 'Reduce errors and accelerate cash collection.',
+                slug: 'invoice-generation-reconciliation',
+                a1: `Use case: Invoice generation & reconciliation`,
+              },
+              {
+                title: 'Customer support triage & tagging',
+                sub: 'Route issues to the right person, fast.',
+                slug: 'support-triage-tagging',
+                a1: `Use case: Support triage & tagging`,
+              },
+              {
+                title: 'Data syncs between tools',
+                sub: 'One source of truth with fewer copy-paste mistakes.',
+                slug: 'data-syncs-between-tools',
+                a1: `Use case: Data syncs between tools`,
+              },
+              {
+                title: 'Slack/Teams workflow bots',
+                sub: 'Trigger workflows from chat to speed up ops.',
+                slug: 'slack-teams-workflow-bots',
+                a1: `Use case: Slack/Teams workflow bots`,
+              },
+            ].map((item) => {
+              // Use internal /book redirect so we don't hardcode Calendly slug; Next.js will forward the query params
+              const calendly = `/book?utm_source=site&utm_medium=usecase-card&utm_campaign=booking&utm_content=${item.slug}&a1=${encodeURIComponent(item.a1)}`
+              return (
+                <Link key={item.title} href={calendly} className="group block rounded-2xl bg-white p-6 text-slate-900 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="font-semibold">{item.title}</div>
+                    <svg aria-hidden="true" className="h-4 w-4 text-slate-400 transition group-hover:text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
+                  </div>
+                  <div className="mt-1.5 text-sm text-slate-600 leading-6">{item.sub}</div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -264,7 +273,7 @@ export default function Home() {
       {/* removed testimonials section for streamlined flow */}
 
       {/* 6. Pricing & Packages */}
-      <div id="pricing" className="bg-white py-16">
+      <div id="pricing" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1B263B] mb-4">Simple, Transparent Pricing</h2>
@@ -275,7 +284,12 @@ export default function Home() {
                 <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Starter</h3>
                 <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
                 <p className="text-slate-600 mb-5">1 automation/mo + support</p>
-                <a href="/book" className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]">Book starter call</a>
+                <a
+                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=starter&a1=${encodeURIComponent('Plan interest: Starter')}`}
+                  className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
+                >
+                  Book starter call
+                </a>
               </div>
             </div>
             <div className="relative rounded-2xl bg-white p-8 shadow-md ring-2 ring-[#415A77]">
@@ -286,7 +300,12 @@ export default function Home() {
                 <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Growth</h3>
                 <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
                 <p className="text-slate-600 mb-5">2–3 automations/mo + training</p>
-                <a href="/book" className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]">Book growth call</a>
+                <a
+                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=growth&a1=${encodeURIComponent('Plan interest: Growth')}`}
+                  className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
+                >
+                  Book growth call
+                </a>
               </div>
             </div>
             <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
@@ -294,7 +313,12 @@ export default function Home() {
                 <h3 className="text-xs font-semibold tracking-wide text-slate-600 mb-1 uppercase">Scale</h3>
                 <p className="text-3xl font-extrabold text-[#1B263B] mb-2">$X/mo</p>
                 <p className="text-slate-600 mb-5">Unlimited requests, dedicated support</p>
-                <a href="/book" className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]">Book scale call</a>
+                <a
+                  href={`/book?utm_source=site&utm_medium=pricing-card&utm_campaign=booking&utm_content=scale&a1=${encodeURIComponent('Plan interest: Scale')}`}
+                  className="block w-full text-white bg-[#E63946] hover:brightness-90 py-3 px-6 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E63946]"
+                >
+                  Book scale call
+                </a>
               </div>
             </div>
           </div>
@@ -302,10 +326,10 @@ export default function Home() {
       </div>
 
       {/* 7. Trust & FAQ */}
-      <div className="bg-slate-50 py-16">
+      <div className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">FAQ</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
           </div>
           <script
             type="application/ld+json"
@@ -387,7 +411,7 @@ export default function Home() {
 
       {/* 8. Final CTA (Urgency Push) */}
       <div id="contact" className="bg-[#1B263B]">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Cut Costs & Move Faster?</h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 7 days or less.</p>

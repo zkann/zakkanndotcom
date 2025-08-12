@@ -91,4 +91,102 @@
   border-left-color: #93c5fd;
 }
 
+/* Keyframes for line animations used in How It Works connectors */
+@keyframes linegrow {
+  to {
+    width: 100%;
+  }
+}
+
+/* animate connectors only when parent has .inview */
+.inview .connector-animate {
+  width: 0%;
+  animation: linegrow 1s ease forwards;
+}
+.inview .connector-animate.delay-1 {
+  animation-delay: .2s;
+}
+.inview .connector-animate.delay-2 {
+  animation-delay: .8s;
+}
+
+/* SVG path draw for connectors */
+@keyframes pathdraw { to { stroke-dashoffset: 0; } }
+.connector-path { stroke-dasharray: 120; stroke-dashoffset: 120; }
+.inview .animate-draw { animation: pathdraw 1s ease forwards; }
+.inview .animate-draw.delay-1 { animation-delay: .2s; }
+.inview .animate-draw.delay-2 { animation-delay: .8s; }
+
+/* Continuous pulse runner across connector baseline */
+@keyframes pulse-run {
+  0%   { transform: translateX(-25%); opacity: 0; }
+  10%  { opacity: .6; }
+  50%  { opacity: .8; }
+  90%  { opacity: .6; }
+  100% { transform: translateX(125%); opacity: 0; }
+}
+.connector-pulse { animation: none; }
+.inview .connector-pulse { animation: pulse-run 2.4s linear infinite; }
+.inview .connector-pulse.delay-1 { animation-delay: .2s; }
+.inview .connector-pulse.delay-2 { animation-delay: .8s; }
+
+/* Node highlight when pulse arrives */
+@keyframes ringPulse {
+  0% { box-shadow: 0 0 0 0 rgba(100,116,139,0.0); }
+  50% { box-shadow: 0 0 0 10px rgba(100,116,139,0.25); }
+  100% { box-shadow: 0 0 0 0 rgba(100,116,139,0.0); }
+}
+.badge-1, .badge-2, .badge-3 { will-change: box-shadow; }
+.inview .badge-2 { animation: ringPulse .7s ease forwards; animation-delay: 2s; }
+.inview .badge-3 { animation: ringPulse .7s ease forwards; animation-delay: 4s; }
+
+/* Segment pulse across a connector (runs once) */
+@keyframes seg-run { from { transform: translateX(-16%); opacity: .8; } to { transform: translateX(100%); opacity: .8; } }
+.seg-pulse { animation: none; will-change: transform, opacity; }
+.inview .seg-pulse { animation: seg-run .7s linear both; }
+.inview .seg-pulse.delay-s1 { animation-delay: .2s; }
+.inview .seg-pulse.delay-s2 { animation-delay: 1.1s; }
+
+/* Looping sequence: Step 1 (0-10%), line 1 (10-35%), Step 2 (35-45%), line 2 (45-70%), Step 3 (70-80%) */
+@keyframes shine-c1 {
+  0%,9% { opacity: 0; background-position: 0% 0; }
+  10%   { opacity: .7; background-position: 0% 0; }
+  35%   { opacity: .9; background-position: 100% 0; }
+  36%,100% { opacity: 0; }
+}
+@keyframes shine-c2 {
+  0%,44% { opacity: 0; background-position: 0% 0; }
+  45%   { opacity: .7; background-position: 0% 0; }
+  70%   { opacity: .9; background-position: 100% 0; }
+  71%,100% { opacity: 0; }
+}
+@keyframes ringLoop1 {
+  0% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  10% { box-shadow: 0 0 0 12px rgba(100,116,139,0.25); }
+  20% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  100% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+}
+@keyframes ringLoop2 {
+  0%,35% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  45% { box-shadow: 0 0 0 12px rgba(100,116,139,0.25); }
+  55% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  100% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+}
+@keyframes ringLoop3 {
+  0%,70% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  80% { box-shadow: 0 0 0 12px rgba(100,116,139,0.25); }
+  90% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+  100% { box-shadow: 0 0 0 0 rgba(100,116,139,0); }
+}
+.shine { background-image: linear-gradient(90deg, rgba(100,116,139,0), rgba(100,116,139,0.85) 20%, rgba(100,116,139,0) 40%); background-repeat: no-repeat; background-size: 200% 100%; opacity: 0; }
+.inview .shine-c1 { animation: shine-c1 3s linear infinite; }
+.inview .shine-c2 { animation: shine-c2 3s linear infinite; }
+.inview .badge-loop-1 { animation: ringLoop1 3s linear infinite; }
+.inview .badge-loop-2 { animation: ringLoop2 3s linear infinite; }
+.inview .badge-loop-3 { animation: ringLoop3 3s linear infinite; }
+
+/* Sheen is a background gradient moving across full connector width */
+/* Already added above as .shine with delays; ensure display */
+.shine { display: block; }
+
 
