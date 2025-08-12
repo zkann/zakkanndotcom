@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3000</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/privacy</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/about</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/terms</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/blog/getting-started-with-fractional-cto</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/blog/technology-stack-decisions</loc><lastmod>2025-08-11T17:48:20.786Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/about</loc><lastmod>2025-08-12T21:10:02.068Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/privacy</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/5-ai-automations-your-smb-can-launch-in-a-week</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/7-most-profitable-ai-automations-for-ecommerce-businesses</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/7-most-profitable-ai-automations-for-service-businesses</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/7-myths-about-ai-automation-and-the-truth-for-smbs</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/best-ai-automation-tools-for-smbs-2025</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/how-to-find-highest-roi-automation-opportunities</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/technology-stack-decisions</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog/why-ai-automation-competitive-edge-smbs-2025</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/terms</loc><lastmod>2025-08-12T21:10:02.077Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
