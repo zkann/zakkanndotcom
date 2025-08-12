@@ -6,17 +6,28 @@ module.exports = {
   additionalPaths: async () => {
     const paths = [];
     
+    // Ensure blog index is included
+    paths.push({
+      loc: `/blog`,
+      changefreq: 'daily',
+      priority: 0.7,
+    });
+
     // Add blog posts
     try {
-      const { allPosts } = await import('./.contentlayer/generated');
-      allPosts.forEach((post) => {
+      // Prefer the public import alias that Contentlayer exposes
+      const { allPosts } = await import('contentlayer/generated');
+      allPosts
+        .filter((post) => !post.draft)
+        .forEach((post) => {
+          const lastmod = post.updated || post.date;
         paths.push({
           loc: `/blog/${post.slug}`,
-          lastmod: post.date,
+          lastmod,
           changefreq: 'weekly',
           priority: 0.8,
         });
-      });
+        });
     } catch {
       console.warn('Could not load blog posts for sitemap');
     }

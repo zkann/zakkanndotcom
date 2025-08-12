@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   description:
     "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools—without hiring a full-time tech exec. Project-based pricing.",
   alternates: {
-    canonical: "/",
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
   },
   openGraph: {
     title: "AI Automation & Internal Tools – Zak Kann",

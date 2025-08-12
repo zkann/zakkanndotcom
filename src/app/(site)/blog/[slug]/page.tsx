@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = post.title;
   const description = post.excerpt;
   const url = `https://zakkann.com${post.url}`;
-  const ogImageUrl = post.ogImage || `${post.url}/opengraph-image.png`;
+  const ogImageUrl = post.ogImage || `https://zakkann.com${post.url}/opengraph-image.png`;
   return {
     title,
     description,
-    alternates: { canonical: post.url },
+    alternates: { canonical: url },
     openGraph: {
       title,
       description,
@@ -76,7 +76,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <div className="bg-white">
       <ReadingProgress />
       <div className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <script
+          <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -84,7 +84,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               '@type': 'BlogPosting',
               headline: post.title,
               datePublished: post.date,
-              dateModified: post.date,
+                dateModified: updatedDate,
               author: {
                 '@type': 'Person',
                 name: post.author || 'Zak Kann',
@@ -95,6 +95,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 '@id': `https://zakkann.com${post.url}`,
               },
               description: post.excerpt,
+                image: post.ogImage ? [`https://zakkann.com${post.ogImage}`] : undefined,
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'Zak Kann',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://zakkann.com/apple-touch-icon.png',
+                  },
+                },
             }),
           }}
         />
