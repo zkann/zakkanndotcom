@@ -427,7 +427,7 @@ export default function Home() {
       {/* 8. Final CTA (Urgency Push) */}
       <div id="contact" className="bg-primary">
         <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-0">
             <h2 className="text-title md:text-4xl font-bold text-white [text-wrap:balance]">Ready to cut costs & move faster?</h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 2 weeks or less.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
