@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'https://zakkann.com'),
   title: "AI Automation Services",
-  description: "AI automation and internal tools for SMBs. Project-based pricing.",
+  description: "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools without hiring a full-time tech exec.",
   icons: {
     icon: [
       { url: '/favicon.ico?v=2', sizes: 'any' },

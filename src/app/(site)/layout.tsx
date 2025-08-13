@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Zak Kann",
   },
   description:
-    "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools—without hiring a full-time tech exec. Project-based pricing.",
+    "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools without hiring a full-time tech exec.",
   alternates: {
     types: {
       'application/rss+xml': '/feed.xml',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Automation & Internal Tools – Zak Kann",
     description:
-      "Start risk‑free. Automation and internal tools your team can maintain. Project-based pricing.",
+      "Cut costs, crush bottlenecks, and ship faster with AI automation and internal tools without hiring a full-time tech exec.",
     url: "https://zakkann.com",
     siteName: "Zak Kann",
     type: "website",
