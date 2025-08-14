@@ -3,8 +3,8 @@
 
 /* Tailwind v4 theme tokens for custom colors */
 @theme {
-  --color-primary: #1B263B;
-  --color-secondary: #415A77;
+  --color-primary: #1B263B; /* rgb(27, 38, 59) */
+  --color-secondary: #415A77; /* rgb(65, 90, 119) */
   --color-cta: #E63946;
   --color-highlight: #F4D35E;
   --color-text: #1C1C1E;
@@ -145,6 +145,37 @@
   50% { box-shadow: 0 0 0 10px rgba(100,116,139,0.25); }
   100% { box-shadow: 0 0 0 0 rgba(100,116,139,0.0); }
 }
+
+/* Radix UI Accordion Animations */
+[role="region"][data-state="open"] {
+  animation: accordion-down 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[role="region"][data-state="closed"] {
+  animation: accordion-up 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
 .badge-1, .badge-2, .badge-3 { will-change: box-shadow; }
 .inview .badge-2 { animation: ringPulse .7s ease forwards; animation-delay: 2s; }
 .inview .badge-3 { animation: ringPulse .7s ease forwards; animation-delay: 4s; }
@@ -198,4 +229,61 @@
 /* Already added above as .shine with delays; ensure display */
 .shine { display: block; }
 
+.how-to-step {
+  position: relative;
+}
 
+.how-to-step::after {
+  content: '';
+  width: 1px;
+  position: absolute;
+  top: 70px;
+  bottom: -60px;
+  left: 34.5px;
+  /* secondary with reduced emphasis */
+  background-color: theme('colors.primary');
+  opacity: 0.25;
+}
+
+.how-to-step:hover::after {
+  opacity: 1;
+}
+
+.active-how-to-step::after {
+  width: 2px;
+  left: 34.0px;
+  opacity: 1;
+}
+
+.how-to-button {
+  font-size: 24px;
+  font-weight: 500;
+  color: theme('colors.secondary');
+  border: 1px solid rgba(27, 38, 59, 0.2);
+  border-radius: 6px;
+}
+
+.how-to-button:hover {
+  background-color: theme('colors.highlight');
+  border: 1px solid rgba(27, 38, 59, 1);
+}
+
+.active-how-to-step .how-to-button {
+  /* highlight */
+  background-color: theme('colors.secondary');
+  color: theme('colors.highlight');
+  pointer-events: none;
+  border: 1px solid theme('colors.primary');
+}
+
+.how-to-images {
+  position: sticky;
+  top: calc(50vh - 195px);
+}
+
+@media (max-width: 1379px) {
+  .how-to-images {
+    position: relative;
+    top: unset;
+  }
+}

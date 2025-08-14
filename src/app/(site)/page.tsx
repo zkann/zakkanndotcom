@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import HowItWorks from '@/components/HowItWorks';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+import ProcessSteps from '@/components/ProcessSteps';
 
 export default function Home() {
   return (
@@ -40,7 +42,7 @@ export default function Home() {
                 📅 Book my free 30-min call
               </a>
             </div>
-            <div className="text-sm text-white/80 mt-4">Slots fill fast, so secure yours today.</div>
+            <div className="text-sm text-white/80 mt-4">Limited to 5 new clients per month for quality assurance.</div>
           </div>
         </div>
       </div>
@@ -140,62 +142,16 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3. What You’ll Get (Deliverables) */}
-      <div id="deliverables" className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Automation that pays for itself from day one</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-3">In your first week</h3>
-              <ul className="space-y-2.5 text-slate-700 text-base">
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />1–2 AI-powered automations shipped</li>
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />Backlog of high-ROI automation ideas</li>
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />Documentation & handover video</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-3">Ongoing</h3>
-              <ul className="space-y-2.5 text-slate-700 text-base">
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />New automations each sprint</li>
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />Weekly updates + performance tracking</li>
-                <li className="relative pl-5 leading-6 md:leading-7"><span className="absolute left-0 top-2 size-1.5 rounded-full bg-slate-400/60" />Optional team training</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. How It Works – 3 Steps */}
-      <div id="process" className="bg-white py-20">
+      {/* 3.  How It Works – 3 Steps */}
+      <div id="process" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-title md:text-4xl font-bold text-slate-900">How it works</h2>
           </div>
-          {/* New single-SVG timeline */}
-          <div className="hidden md:block">
-            <HowItWorks />
-          </div>
-          {/* Mobile fallback: simple stacked steps (unchanged) */}
 
-          {/* Stacked steps (mobile) */}
-          <div className="md:hidden space-y-6">
-            <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-white text-sm ring-1 ring-black/5">1</div>
-              <h3 className="text-base font-semibold text-slate-900">Book a free call</h3>
-              <p className="mt-1 text-slate-600 leading-6">Identify automation opportunities</p>
-            </div>
-            <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-white text-sm ring-1 ring-black/5">2</div>
-              <h3 className="text-base font-semibold text-slate-900">1‑week pilot</h3>
-              <p className="mt-1 text-slate-600 leading-6">Build your first automation</p>
-            </div>
-            <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-white text-sm ring-1 ring-black/5">3</div>
-              <h3 className="text-base font-semibold text-slate-900">Scale & optimize</h3>
-              <p className="mt-1 text-slate-600 leading-6">Continuous improvements</p>
-            </div>
+
+          <div className="mt-12">
+            <ProcessSteps />
           </div>
           <div className="mt-10 text-center">
             <a
@@ -210,8 +166,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 5. Common SMB Automations */}
-      <div id="use-cases" className="bg-slate-50 py-20">
+      {/* 4. Common SMB Automations */}
+      <div id="use-cases" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Practical automations that pay for themselves</h2>
@@ -220,37 +176,37 @@ export default function Home() {
             {[
               {
                 title: 'CRM updates & lead routing',
-                sub: 'Keep reps selling while leads are automatically routed and enriched.',
+                sub: 'Keep reps selling while leads are routed in under 2 minutes vs 2+ hours manually. Auto-enrich with 90% accuracy.',
                 slug: 'crm-updates-lead-routing',
                 a1: `Use case: CRM updates & lead routing`,
               },
               {
                 title: 'Weekly KPI dashboards',
-                sub: 'Real-time visibility without manual spreadsheets.',
+                sub: 'Get real-time KPI visibility in 30 seconds vs 4+ hours building spreadsheets weekly. 100% data accuracy guaranteed.',
                 slug: 'weekly-kpi-dashboards',
                 a1: `Use case: Weekly KPI dashboards`,
               },
               {
                 title: 'Invoice generation & reconciliation',
-                sub: 'Reduce errors and accelerate cash collection.',
+                sub: 'Cut invoice processing from 4 hours to 15 minutes per batch. Reduce errors from 15% to under 1%. Speed up collections by 40%.',
                 slug: 'invoice-generation-reconciliation',
                 a1: `Use case: Invoice generation & reconciliation`,
               },
               {
                 title: 'Customer support triage & tagging',
-                sub: 'Route issues to the right person, fast.',
+                sub: 'Route support tickets to the right team in 30 seconds vs 20+ minutes manually. Reduce resolution time by 60%.',
                 slug: 'support-triage-tagging',
                 a1: `Use case: Support triage & tagging`,
               },
               {
                 title: 'Data syncs between tools',
-                sub: 'One source of truth with fewer copy-paste mistakes.',
+                sub: 'Eliminate 10+ hours weekly of manual data entry. Sync 500+ records instantly with 99.9% accuracy vs error-prone copy-paste.',
                 slug: 'data-syncs-between-tools',
                 a1: `Use case: Data syncs between tools`,
               },
               {
                 title: 'Slack/Teams workflow bots',
-                sub: 'Trigger workflows from chat to speed up ops.',
+                sub: 'Trigger approvals, updates, and reports instantly from chat. Cut workflow completion from hours to seconds.',
                 slug: 'slack-teams-workflow-bots',
                 a1: `Use case: Slack/Teams workflow bots`,
               },
@@ -286,8 +242,8 @@ export default function Home() {
 
       {/* removed testimonials section for streamlined flow */}
 
-      {/* 6. Pricing */}
-      <div id="pricing" className="bg-white py-20">
+      {/* 5. Pricing */}
+      <div id="pricing" className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-title md:text-4xl font-bold text-slate-900 [text-wrap:balance]">Your automation should pay for itself — fast</h2>
@@ -316,8 +272,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 7. Trust & FAQ */}
-      <div id="faq" className="bg-slate-50 py-20">
+      {/* 6. Trust & FAQ */}
+      <div id="faq" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-title md:text-4xl font-bold text-slate-900">Frequently asked questions</h2>
@@ -377,45 +333,128 @@ export default function Home() {
                       text: 'We will jointly define outcome metrics—typically cost saved, hours reclaimed, or workflow throughput within your first week. Every automation comes with performance tracking so we can optimize continuously.',
                     },
                   },
+                  {
+                    '@type': 'Question',
+                    name: 'What if our processes are too unique to automate?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: "Every business thinks their processes are unique—and often they are! That's why we don't use cookie-cutter solutions. Our 1-week pilot specifically maps your unique workflows before building custom automations that fit exactly how you work.",
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'How do we ensure the automated data is accurate?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'We build in validation checkpoints and error handling from day one. Plus, you get full audit trails and can set up approval workflows for critical processes. Most clients see data accuracy improve from ~85% (manual entry) to 99%+ (automated).',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'What if our team resists using the new automations?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'Change management is built into our process. We involve your team in designing the workflows, provide hands-on training, and make automations feel like helpful assistants rather than replacements. The 10-20 hours/week they save usually wins them over quickly.',
+                    },
+                  },
                 ],
               }),
             }}
           />
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">What does pricing look like for my business?</h3>
-              <p className="text-slate-700">Our projects start at around $3K, but the real value lies in the ROI we deliver. Most SMB clients see $5K–$15K/month in operating cost savings and reclaim 10–20 hours/week of manual effort. <a href="/book" data-event="cta_click" data-location="faq" className="text-cta underline underline-offset-4">Book a free call</a>, and we&#39;ll assess your opportunities and provide a custom plan &amp; quote.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">How quickly can I expect results?</h3>
-              <p className="text-slate-700">Typically, you&#39;ll see your first automation up and running within 2 weeks. From there, you get weekly updates and added automations each sprint.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">What kind of automations do you build?</h3>
-              <div className="text-slate-700">
-                <p>We specialize in workflows like:</p>
-                <ul className="list-disc pl-5 mt-2 space-y-1">
-                  <li>CRM updates &amp; lead routing</li>
-                  <li>Weekly KPI dashboards</li>
-                  <li>Invoice generation &amp; reconciliation</li>
-                  <li>Customer support tagging &amp; triage</li>
-                  <li>Tool integrations (e.g., Slack, Teams, Zapier, etc.)</li>
-                </ul>
-                <p className="mt-2">If you&#39;re using it—it&#39;s automatable.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">What tools do you work with?</h3>
-              <p className="text-slate-700">We integrate with most modern tools and platforms that SMBs use—CRMs like HubSpot, Pipedrive; ticketing tools like Zendesk; communication platforms like Slack/Teams; spreadsheets, email, and more. We’ll adapt to your ecosystem, not make you adapt to ours.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Do I need to have technical help in-house?</h3>
-              <p className="text-slate-700">Nope. We handle the full stack—from scoping and development to deployment and handover. All you need is someone to approve the logic and check that it fits your workflow.</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">How do we measure success?</h3>
-              <p className="text-slate-700">We&#39;ll jointly define outcome metrics—typically cost saved, hours reclaimed, or workflow throughput within your first week. Every automation comes with performance tracking so we can optimize continuously.</p>
-            </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible defaultValue="item-1" className="bg-white rounded-xl shadow-sm ring-1 ring-slate-200">
+              <AccordionItem value="item-1" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  What does pricing look like for my business?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>Our projects start at around $3K, but the real value lies in the ROI we deliver. Most SMB clients see $5K–$15K/month in operating cost savings and reclaim 10–20 hours/week of manual effort. <a href="/book" data-event="cta_click" data-location="faq" className="text-cta underline underline-offset-4">Book a free call</a>, and we&apos;ll assess your opportunities and provide a custom plan &amp; quote.</p>
+                  <p className="mt-2">Plus, we guarantee ROI within 90 days—if your automation doesn&apos;t save its cost, we&apos;ll make it right.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  How quickly can I expect results?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>Typically, you&apos;ll see your first automation up and running within 2 weeks. From there, you get weekly updates and added automations each sprint.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  What kind of automations do you build?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <div>
+                    <p>We specialize in workflows like:</p>
+                    <ul className="list-disc pl-5 mt-2 space-y-1">
+                      <li>CRM updates &amp; lead routing</li>
+                      <li>Weekly KPI dashboards</li>
+                      <li>Invoice generation &amp; reconciliation</li>
+                      <li>Customer support tagging &amp; triage</li>
+                      <li>Tool integrations (e.g., Slack, Teams, Zapier, etc.)</li>
+                    </ul>
+                    <p className="mt-2">If you&apos;re using it—it&apos;s automatable.</p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  What tools do you work with?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>We integrate with most modern tools and platforms that SMBs use—CRMs like HubSpot, Pipedrive; ticketing tools like Zendesk; communication platforms like Slack/Teams; spreadsheets, email, and more. We&apos;ll adapt to your ecosystem, not make you adapt to ours.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-5" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  Do I need to have technical help in-house?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>Nope. We handle the full stack—from scoping and development to deployment and handover. All you need is someone to approve the logic and check that it fits your workflow.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-6" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  How do we measure success?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>We&apos;ll jointly define outcome metrics—typically cost saved, hours reclaimed, or workflow throughput within your first week. Every automation comes with performance tracking so we can optimize continuously.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-7" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  What if our processes are too unique to automate?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>Every business thinks their processes are unique—and often they are! That&apos;s why we don&apos;t use cookie-cutter solutions. Our 1-week pilot specifically maps your unique workflows before building custom automations that fit exactly how you work.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-8" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  How do we ensure the automated data is accurate?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>We build in validation checkpoints and error handling from day one. Plus, you get full audit trails and can set up approval workflows for critical processes. Most clients see data accuracy improve from ~85% (manual entry) to 99%+ (automated).</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-9" className="border-b border-slate-200 last:border-b-0">
+                <AccordionTrigger>
+                  What if our team resists using the new automations?
+                </AccordionTrigger>
+                <AccordionContent className="px-6">
+                  <p>Change management is built into our process. We involve your team in designing the workflows, provide hands-on training, and make automations feel like helpful assistants rather than replacements. The 10-20 hours/week they save usually wins them over quickly.</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </div>
@@ -430,10 +469,11 @@ export default function Home() {
           <div className="text-center mb-0">
             <h2 className="text-title md:text-4xl font-bold text-white [text-wrap:balance]">Ready to cut costs & move faster?</h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Book your free 30-min call today and get your first automation live in 2 weeks or less.</p>
+            <p className="text-xl text-white/80 mb-8  max-w-2xl mx-auto"><strong>ROI guarantee:</strong> If your automation doesn&apos;t save its cost within 90 days, we&apos;ll refund the difference. No long-term contracts—pause or cancel anytime.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a href="/book" data-event="cta_click" data-location="final" className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary">📅 Book my free 30-min call</a>
             </div>
-            <p className="text-sm text-white/70">⚡ Slots fill quickly. Secure yours today.</p>
+            <p className="text-sm text-white/70">⚡ Limited to 5 new clients per month for quality assurance.</p>
           </div>
         </div>
       </div>

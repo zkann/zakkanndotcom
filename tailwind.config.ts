@@ -35,6 +35,7 @@ const config: Config = {
         highlight: '#F4D35E', // gold for ROI/logos
         text: '#1C1C1E', // near-black text
       },
+
     },
   },
   plugins: [],
