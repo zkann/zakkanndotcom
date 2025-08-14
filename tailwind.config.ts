@@ -12,7 +12,7 @@ const config: Config = {
       fontSize: {
         'display': ['2.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'title': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        'eyebrow': [0.8125rem, { lineHeight: '1.3', letterSpacing: '0.06em', textTransform: 'uppercase' as any }],
+        'eyebrow': ['0.8125rem', { lineHeight: '1.3', letterSpacing: '0.06em', textTransform: 'uppercase' as any }],
       },
       colors: {
         brand: {
