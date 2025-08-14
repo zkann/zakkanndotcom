@@ -10,6 +10,39 @@
   --color-text: #1C1C1E;
 }
 
+/* Ensure custom colors are available as utility classes */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-cta {
+  background-color: var(--color-cta);
+}
+
+.bg-highlight {
+  background-color: var(--color-highlight);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-cta {
+  color: var(--color-cta);
+}
+
+.text-highlight {
+  color: var(--color-highlight);
+}
+
 
 /* Blog typography tweaks */
 :root {
