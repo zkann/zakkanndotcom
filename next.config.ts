@@ -26,10 +26,10 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob: https:",
-              "connect-src 'self' https:",
+              "img-src 'self' data: blob: https: https://www.facebook.com",
+              "connect-src 'self' https: https://connect.facebook.net",
               "font-src 'self' data:",
               "frame-src 'self' https://cal.com https://*.cal.com https://calendly.com https://*.calendly.com",
               "frame-ancestors 'self'",
