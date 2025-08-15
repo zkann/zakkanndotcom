@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import "./globals.css";
 
 import FBPixelRouteChange from "@/components/FBPixelRouteChange";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAnalyticsRouteChange from "@/components/GoogleAnalyticsRouteChange";
 
 
 const geistSans = Geist({
@@ -36,6 +38,7 @@ export const metadata: Metadata = {
 };
 
 const META_PIXEL_ID = "635050849636654";
+const GA_MEASUREMENT_ID = 'G-97FMTHNYXQ';
 
 export default function RootLayout({
   children,
@@ -77,9 +80,11 @@ export default function RootLayout({
         </noscript>
         <Suspense fallback={null}>
           <FBPixelRouteChange />
+          {GA_MEASUREMENT_ID && <GoogleAnalyticsRouteChange />}
         </Suspense>
         {children}
         <Analytics />
+        {GA_MEASUREMENT_ID && <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );
