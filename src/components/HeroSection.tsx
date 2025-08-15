@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface HeroSectionProps {
   industry?: string;
   title?: string;
@@ -101,11 +103,13 @@ export default function HeroSection({
           {image && (
             <div className="lg:order-2 mt-12 lg:mt-0">
               <div className="relative">
-                <img
+                <Image
                   src={image}
                   alt={`${industry ? industry + ' ' : ''}automation illustration`}
                   className="w-full h-auto rounded-lg"
-                  loading="eager"
+                  width={600}
+                  height={400}
+                  priority
                 />
               </div>
             </div>

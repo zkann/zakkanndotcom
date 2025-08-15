@@ -238,7 +238,7 @@ export default function LawFirmAutomationPage() {
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <h3 className="font-semibold text-gray-900 mb-3">Custom Integrations</h3>
-              <p className="text-gray-600 text-sm">We'll adapt to your unique tech stack</p>
+              <p className="text-gray-600 text-sm">We&apos;ll adapt to your unique tech stack</p>
             </div>
           </div>
         </div>
