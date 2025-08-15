@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const META_PIXEL_ID = "635050849636654";
+const META_PIXEL_ID = "3094116730768349";
 const GA_MEASUREMENT_ID = 'G-97FMTHNYXQ';
 
 export default function RootLayout({
