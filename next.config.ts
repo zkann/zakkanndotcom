@@ -26,10 +26,10 @@ const nextConfig: NextConfig = {
               key: "Content-Security-Policy",
               value: [
                 "default-src 'self'",
-                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com",
-                "style-src 'self' 'unsafe-inline'",
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://f.convertkit.com https://assets.calendly.com https://calendly.com",
+                "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://calendly.com",
                 "img-src 'self' data: blob: https: https://www.facebook.com https://www.google-analytics.com https://stats.g.doubleclick.net",
-                "connect-src 'self' https: https://connect.facebook.net https://www.facebook.com https://graph.facebook.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
+                "connect-src 'self' https: https://connect.facebook.net https://www.facebook.com https://graph.facebook.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://app.kit.com https://api.calendly.com https://calendly.com",
                 "font-src 'self' data:",
                 "frame-src 'self' https://cal.com https://*.cal.com https://calendly.com https://*.calendly.com",
                 "frame-ancestors 'self'",
