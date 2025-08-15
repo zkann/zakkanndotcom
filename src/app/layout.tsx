@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
+import { Suspense } from "react";
 import "./globals.css";
 
 import FBPixelRouteChange from "@/components/FBPixelRouteChange";
@@ -74,7 +75,9 @@ export default function RootLayout({
             src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
           />
         </noscript>
-        <FBPixelRouteChange />
+        <Suspense fallback={null}>
+          <FBPixelRouteChange />
+        </Suspense>
         {children}
         <Analytics />
       </body>
