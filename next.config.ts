@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "connect-src 'self' https:",
-      "font-src 'self' data:",
+      "font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com",
       "frame-src 'self'",
       "frame-ancestors 'self'",
       "upgrade-insecure-requests",
