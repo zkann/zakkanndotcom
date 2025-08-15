@@ -1,5 +1,4 @@
 import React from 'react';
-import { TrackingButton } from './FacebookPixelTracker';
 
 type ConvertKitFormProps = {
   formId?: string;
@@ -61,18 +60,12 @@ export default function ConvertKitForm({
           className="w-full border border-gray-300 rounded-md px-3 py-2 bg-white"
           aria-label="Email address"
         />
-        <TrackingButton
+        <button
           type="submit"
-          eventName="CustomEvent"
-          parameters={{
-            event_name: 'FormSubmission',
-            form_name: 'ConvertKit Newsletter',
-            page: '/'
-          }}
           className="inline-flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary"
         >
           {submitLabel}
-        </TrackingButton>
+        </button>
       </div>
     </form>
   );
