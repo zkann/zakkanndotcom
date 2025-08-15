@@ -27,7 +27,7 @@ export default function PricingSection({
         </div>
         <div className="max-w-2xl mx-auto">
           <div className="relative rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-            <div className="text-center">
+            <div className="flex flex-col items-center text-center">
               <p className="text-base font-semibold text-slate-900 mb-3">Our clients typically:</p>
               <ul className="text-left inline-block text-slate-700 space-y-2 mb-5">
                 {benefits.map((benefit, index) => (
@@ -38,7 +38,7 @@ export default function PricingSection({
                 href={`/book?utm_source=site&utm_medium=pricing-card`}
                 data-event="cta_click"
                 data-location={ctaLocation}
-                className="inline-flex items-center justify-center w-full px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-white"
+                className="inline-flex items-center justify-center px-7 py-2 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-white"
               >
                 {ctaText}
               </a>

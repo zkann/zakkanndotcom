@@ -1,19 +1,23 @@
 interface HeroSectionProps {
   industry?: string;
+  title?: string;
   subtitle?: string | Array<{ text: string; highlight?: boolean }>;
   ctaText?: string;
   ctaLocation?: string;
   limitedText?: string;
   background?: string;
+  image?: string;
 }
 
 export default function HeroSection({
   industry,
+  title,
   subtitle = "We deliver AI-powered automations that cut costs, remove bottlenecks, and accelerate SMBs without hiring more people.",
   ctaText = "📅 Book my free 30-min call",
   ctaLocation = "hero",
   limitedText = "Limited to 5 new clients per month for quality assurance.",
-  background = "bg-primary"
+  background = "bg-primary",
+  image
 }: HeroSectionProps) {
   const renderSubtitle = (subtitleContent: string | Array<{ text: string; highlight?: boolean }>) => {
     if (Array.isArray(subtitleContent)) {
@@ -62,29 +66,50 @@ export default function HeroSection({
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white [text-wrap:balance]">
-            <span className="block">
-              AI aut
-              <span className="relative inline-flex items-center justify-center align-baseline text-highlight text-[0.8em] leading-none animate-spin [animation-duration:5.5s]" aria-hidden="true">⚙️</span>
-              <span className="sr-only">o</span>
-              mation{industry ? ` for ${formatIndustry(industry)}` : ''} that <span className="text-highlight">pays for itself</span>
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed md:leading-8">
-            {renderSubtitle(subtitle)}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/book"
-              data-event="cta_click"
-              data-location={ctaLocation}
-              className="inline-flex items-center px-7 py-4 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors shadow-sm w-full sm:w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
-            >
-              {ctaText}
-            </a>
+        <div className={`${image ? 'lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center' : 'text-center'}`}>
+          {/* Text Content */}
+          <div className={image ? 'lg:order-1' : ''}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white [text-wrap:balance]">
+              <span className="block">
+                {title || (
+                  <>
+                    AI aut
+                    <span className="relative inline-flex items-center justify-center align-baseline text-highlight text-[0.8em] leading-none animate-spin [animation-duration:5.5s]" aria-hidden="true">⚙️</span>
+                    <span className="sr-only">o</span>
+                    mation{industry ? ` for ${formatIndustry(industry)}` : ''} that <span className="text-highlight">pays for itself</span>
+                  </>
+                )}
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed md:leading-8">
+              {renderSubtitle(subtitle)}
+            </p>
+            <div className={`flex flex-col gap-2 ${image ? 'justify-start items-start' : 'justify-center items-center'}`}>
+              <a
+                href="/book"
+                data-event="cta_click"
+                data-location={ctaLocation}
+                className="inline-flex items-center px-7 py-2 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors shadow-sm w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
+              >
+                {ctaText}
+              </a>
+              <div className={`text-sm text-white/80 max-w-3xs ${image ? 'text-left' : 'text-center mx-auto'}`}>{limitedText}</div>
+            </div>
           </div>
-          <div className="text-sm text-white/80 mt-4">{limitedText}</div>
+
+          {/* Image */}
+          {image && (
+            <div className="lg:order-2 mt-12 lg:mt-0">
+              <div className="relative">
+                <img
+                  src={image}
+                  alt={`${industry ? industry + ' ' : ''}automation illustration`}
+                  className="w-full h-auto rounded-lg"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Phone, Search, Zap, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Step {
-  icon: LucideIcon;
+  icon: LucideIcon | string;
   title: string;
   subtitle: string;
   headline: string;
@@ -16,11 +16,25 @@ interface Step {
   successMetric: string;
 }
 
-export default function ProcessSteps() {
+interface ProcessStepsProps {
+  customSteps?: Step[];
+}
+
+export default function ProcessSteps({ customSteps }: ProcessStepsProps) {
   const [activeStep, setActiveStep] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+  const [scrollTrackingDisabled, setScrollTrackingDisabled] = useState(false);
   const stepsRef = useRef<HTMLDivElement>(null);
 
-  const steps: Step[] = [
+  // Icon mapping for string-based icons
+  const iconMap: Record<string, LucideIcon> = {
+    'phone': Phone,
+    'search': Search,
+    'zap': Zap,
+    'trending-up': TrendingUp,
+  };
+
+  const defaultSteps: Step[] = [
     {
       icon: Phone,
       title: "Book a free call",
@@ -114,7 +128,33 @@ export default function ProcessSteps() {
     },
   ];
 
+  // Use custom steps if provided, otherwise use default steps
+  const steps = customSteps || defaultSteps;
+
+  // Helper function to get the icon component
+  const getIconComponent = (icon: LucideIcon | string): LucideIcon => {
+    if (typeof icon === 'string') {
+      return iconMap[icon] || Phone; // fallback to Phone if icon not found
+    }
+    return icon;
+  };
+
+  // Check if device is mobile
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is typical mobile breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Only enable scroll tracking on non-mobile devices and when not disabled
+    if (isMobile || scrollTrackingDisabled) return;
+
     const handleScroll = () => {
       if (!stepsRef.current) return;
       const items = stepsRef.current.querySelectorAll(".step-item");
@@ -130,32 +170,35 @@ export default function ProcessSteps() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobile, scrollTrackingDisabled]);
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[562px]">
 
-      <div className="flex flex-col-reverse xl:flex-row items-center xl:items-start gap-8">
+      <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
         {/* Steps Column */}
         <div ref={stepsRef} className="flex flex-col gap-15 w-full xl:max-w-[413px]">
           {steps.map((step, index) => (
             <button
               key={index}
-              onClick={() => setActiveStep(index + 1)}
+              onClick={() => {
+                setActiveStep(index + 1);
+                setScrollTrackingDisabled(true);
+              }}
               className={`how-to-step step-item flex gap-5 transition-all duration-300 w-full text-left ${
                 activeStep === index + 1 ? 'active-how-to-step' : ''
               }`}
             >
               <div className="step-number relative">
-                <div
-                  className={`how-to-button w-[70px] h-[70px] rounded-lg border-2 flex items-center justify-center text-2xl transition-colors duration-300 ${
-                    activeStep === index + 1
-                      ? ""
-                      : "border-slate-300 text-slate-500"
-                  }`}
-                >
-                  <step.icon size={24} />
-                </div>
+                                  <div
+                    className={`how-to-button w-[70px] h-[70px] rounded-lg border-2 flex items-center justify-center text-2xl transition-colors duration-300 ${
+                      activeStep === index + 1
+                        ? ""
+                        : "border-slate-300 text-slate-500"
+                    }`}
+                  >
+                    {React.createElement(getIconComponent(step.icon), { size: 24 })}
+                  </div>
               </div>
               <div className="flex-1">
                 <h4 className="text-base leading-6 font-bold text-slate-900">{step.title}</h4>

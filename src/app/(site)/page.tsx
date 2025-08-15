@@ -3,14 +3,28 @@ import ResultsBand from '@/components/ResultsBand';
 import PainPointSection from '@/components/PainPointSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import UseCasesSection from '@/components/UseCasesSection';
+import IndustrySolutionsSection from '@/components/IndustrySolutionsSection';
 import PricingSection from '@/components/PricingSection';
 import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 
 export default function Home() {
+  // Define alternating backgrounds for the home page sections
+  const backgrounds = [
+    'bg-primary',      // Hero - dark navy (standalone)
+    'bg-slate-50',    // Results + Pain Points (problem/solution group)
+    'bg-white',    // 
+    'bg-slate-50',        // How it works + Use cases (process group)
+    'bg-slate-50',        // 
+    'bg-white',    // Industry solutions (standalone)
+    'bg-slate-50',        // Pricing + FAQ (conversion group)
+    'bg-slate-50',        // 
+    'bg-primary'       // Final CTA (standalone)
+  ];
+
   return (
     <>
-      <HeroSection />
+      <HeroSection background={backgrounds[0]} />
       
       {/* Trusted by logos row */}
       {/*
@@ -28,19 +42,21 @@ export default function Home() {
       </div>
       */}
       
-      <ResultsBand />
+      <ResultsBand background={backgrounds[1]} />
 
-      <PainPointSection />
+      <PainPointSection background={backgrounds[2]} />
 
-      <HowItWorksSection />
+      <HowItWorksSection background={backgrounds[3]} />
 
-      <UseCasesSection />
+      <UseCasesSection background={backgrounds[4]} />
 
-      <PricingSection />
+      <IndustrySolutionsSection background={backgrounds[5]} />
 
-      <FAQSection />
+      <PricingSection background={backgrounds[6]} />
 
-      <FinalCTASection />
+      <FAQSection background={backgrounds[7]} />
+
+      <FinalCTASection background={backgrounds[8]} />
     </>
   );
 } 

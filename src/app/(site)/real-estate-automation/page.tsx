@@ -7,18 +7,110 @@ import PricingSection from '@/components/PricingSection';
 import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 
+
 export default function RealEstateAutomationPage() {
+  // Custom steps for real estate automation
+  const realEstateSteps = [
+    {
+      icon: 'phone',
+      title: "Book a free call",
+      subtitle: "Audit & roadmap in 30 minutes",
+      headline: "Get Your Custom Real Estate Automation Roadmap",
+      description:
+        "In 30 minutes, we'll audit your brokerage processes and identify your biggest time-wasters. You'll leave with a clear plan for automation, whether you work with us or not.",
+      process: [
+        "Walk through your lead-to-close workflows",
+        "Identify manual tasks costing you the most time",
+        "Calculate ROI potential for top opportunities",
+        "Answer questions about your brokerage goals",
+      ],
+      deliverables: [
+        "📊 Custom automation roadmap",
+        "💰 ROI projections for top 3 opportunities",
+        "📋 Prioritized action plan",
+      ],
+      timeInvestment: "30 minutes",
+      successMetric: "3+ automation opportunities identified with projected savings",
+    },
+    {
+      icon: 'search',
+      title: "Deep dive & scope",
+      subtitle: "Map workflows, plan first automation",
+      headline: "Map Your Workflows & Plan Your First Win",
+      description:
+        "We go beyond surface-level to understand how work actually gets done in your brokerage. By the end of this week, your first automation is fully scoped and ready to build.",
+      process: [
+        "Shadow your team virtually through real workflows",
+        "Document current tools and integration points",
+        "Identify the highest-impact automation to build first",
+        "Create detailed technical specifications",
+      ],
+      deliverables: [
+        "🗺️ Complete process maps",
+        "📄 Technical project scope",
+        "⏱️ Detailed timeline and milestones",
+        "🎯 Success criteria and metrics",
+      ],
+      timeInvestment: "2-3 hours (interviews & reviews)",
+      successMetric: "First automation scoped with clear ROI and timeline",
+    },
+    {
+      icon: 'zap',
+      title: "Build & deploy",
+      subtitle: "Your automation goes live in 1 week",
+      headline: "Your First Automation Goes Live",
+      description:
+        "From concept to working automation in 5 days. You'll see immediate results while we handle all the technical complexity.",
+      process: [
+        "Days 1-2: Build in sandbox environment",
+        "Days 3-4: Demo working version for your feedback",
+        "Day 5: Refine based on input and go live",
+        "Handover with training and documentation",
+      ],
+      deliverables: [
+        "⚡ Fully functional automation",
+        "🎥 Training video for your team",
+        "📖 Documentation and troubleshooting guide",
+        "📞 30 days of support included",
+      ],
+      timeInvestment: "1 hour (feedback and training)",
+      successMetric: "Automation saves projected hours within first week",
+    },
+    {
+      icon: 'trending-up',
+      title: "Scale & optimize",
+      subtitle: "Continuous automations & improvements",
+      headline: "Build Your Automation Pipeline",
+      description:
+        "Systematic rollout of new automations every 2-4 weeks, plus continuous optimization of existing workflows based on real performance data.",
+      process: [
+        "Sprint planning every 2 weeks for next automation",
+        "Build and deploy new workflows on schedule",
+        "Track performance and optimize based on usage",
+        "Quarterly strategy reviews for new opportunities",
+      ],
+      deliverables: [
+        "📈 Real-time performance dashboard",
+        "📚 Growing library of automations",
+        "📊 Weekly ROI and efficiency reports",
+        "🔧 Quarterly optimization recommendations",
+      ],
+      timeInvestment: "30 minutes weekly (planning & reviews)",
+      successMetric: "10-20 hours/week saved within 90 days",
+    },
+  ];
+
   // Simple test - use hardcoded backgrounds for now
   const backgrounds = [
-    'bg-primary',      // Hero - should be dark navy (custom color)
-    'bg-slate-50',    // Results - light gray
-    'bg-white',        // Pain points - white
-    'bg-slate-50',    // How it works - light gray
-    'bg-white',        // Use cases - white
-    'bg-slate-50',    // Integrations - light gray
-    'bg-white',        // Pricing - white
-    'bg-slate-50',    // FAQ - light gray
-    'bg-primary'       // Final CTA - dark navy (custom color)
+    'bg-primary',      // Hero - dark navy (standalone)
+    'bg-slate-50',    // Results + Pain Points (problem/solution group)
+    'bg-white',    // 
+    'bg-slate-50',        // How it works + Value proposition (process group)
+    'bg-slate-50',        // 
+    'bg-white',    // Use cases + Industry solutions (examples group)
+    'bg-slate-50',    // Pricing + FAQ (conversion group)
+    'bg-slate-50',        // 
+    'bg-primary'       // Final CTA (standalone)
   ];
 
   return (
@@ -26,14 +118,15 @@ export default function RealEstateAutomationPage() {
       <HeroSection 
         industry="real estate"
         subtitle={[
-          { text: "We deliver AI-powered automations that cut costs, remove bottlenecks, and accelerate " },
-          { text: "real estate businesses", highlight: true },
+          { text: "We deliver AI-powered automations that eliminate manual listing management, accelerate lead response, and " },
+          { text: "boost commission income", highlight: true },
           { text: " without hiring more people." }
         ]}
         ctaText="📅 Book my free 30-min call"
         ctaLocation="hero"
         limitedText="Limited to 5 new real estate clients per month for quality assurance."
         background={backgrounds[0]}
+        image="/real-estate-cover.png"
       />
       
       {/* Trusted by logos row */}
@@ -76,6 +169,7 @@ export default function RealEstateAutomationPage() {
         ctaText="📅 Book my free 30-min call"
         ctaLocation="process"
         background={backgrounds[3]}
+        customSteps={realEstateSteps}
       />
 
       <UseCasesSection 

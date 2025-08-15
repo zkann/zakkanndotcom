@@ -278,6 +278,11 @@
   opacity: 0.25;
 }
 
+/* Hide the connecting line for the last step */
+.how-to-step:last-child::after {
+  display: none;
+}
+
 .how-to-step:hover::after {
   opacity: 1;
 }
