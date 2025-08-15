@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEventTracking } from './FacebookPixelTracker';
+import { TrackingButton } from './FacebookPixelTracker';
 
 type ConvertKitFormProps = {
   formId?: string;
@@ -22,7 +22,6 @@ export default function ConvertKitForm({
 }: ConvertKitFormProps) {
   const formId = formIdProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID;
   const uid = uidProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_UID;
-  const { trackLead, trackFormSubmission } = useEventTracking();
 
   if (!formId) {
     // If no form id is configured, don't render the form
@@ -32,17 +31,10 @@ export default function ConvertKitForm({
   // Align with current Kit embed domain
   const actionUrl = `https://app.kit.com/forms/${formId}/subscriptions`;
 
-  const handleSubmit = () => {
-    // Track form submission
-    trackFormSubmission('ConvertKit Newsletter', window.location.pathname);
-    trackLead();
-  };
-
   return (
     <form
       action={actionUrl}
       method="post"
-      onSubmit={handleSubmit}
       {...(uid
         ? { 'data-sv-form': String(formId), 'data-uid': String(uid) }
         : {})}
@@ -69,12 +61,18 @@ export default function ConvertKitForm({
           className="w-full border border-gray-300 rounded-md px-3 py-2 bg-white"
           aria-label="Email address"
         />
-        <button
+        <TrackingButton
           type="submit"
+          eventName="CustomEvent"
+          parameters={{
+            event_name: 'FormSubmission',
+            form_name: 'ConvertKit Newsletter',
+            page: '/'
+          }}
           className="inline-flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary"
         >
           {submitLabel}
-        </button>
+        </TrackingButton>
       </div>
     </form>
   );

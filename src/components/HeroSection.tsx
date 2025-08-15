@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useEventTracking } from './FacebookPixelTracker';
+import { TrackingLink } from './FacebookPixelTracker';
 
 interface HeroSectionProps {
   industry?: string;
@@ -22,7 +22,6 @@ export default function HeroSection({
   background = "bg-primary",
   image
 }: HeroSectionProps) {
-  const { trackLead, trackButtonClick } = useEventTracking();
 
   const renderSubtitle = (subtitleContent: string | Array<{ text: string; highlight?: boolean }>) => {
     if (Array.isArray(subtitleContent)) {
@@ -58,11 +57,6 @@ export default function HeroSection({
     return industryName.replace(/\s+/g, '\u00A0');
   };
 
-  const handleCTAClick = () => {
-    trackButtonClick('Hero CTA', window.location.pathname);
-    trackLead();
-  };
-
   return (
     <div className={`relative ${background} py-24`}>
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -95,15 +89,21 @@ export default function HeroSection({
               {renderSubtitle(subtitle)}
             </p>
             <div className={`flex flex-col gap-2 ${image ? 'justify-center items-center lg:justify-start lg:items-start' : 'justify-center items-center'}`}>
-              <a
+              <TrackingLink
                 href="/book"
+                eventName="CustomEvent"
+                parameters={{
+                  event_name: 'ButtonClick',
+                  button_name: 'Hero CTA',
+                  page: '/',
+                  location: ctaLocation
+                }}
                 data-event="cta_click"
                 data-location={ctaLocation}
-                onClick={handleCTAClick}
                 className="inline-flex items-center px-7 py-2 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors shadow-sm w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
               >
                 {ctaText}
-              </a>
+              </TrackingLink>
               <div className={`text-sm text-white/80 max-w-3xs ${image ? 'text-center lg:text-left' : 'text-center mx-auto'}`}>{limitedText}</div>
             </div>
           </div>

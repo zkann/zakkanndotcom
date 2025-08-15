@@ -1,11 +1,15 @@
 declare global {
   interface Window {
-    fbq: any;
+    fbq: {
+      (command: 'init', pixelId: string): void;
+      (command: 'track', eventName: string, parameters?: Record<string, unknown>): void;
+      (command: 'track', eventName: string): void;
+    };
   }
 }
 
 // Facebook Pixel event tracking utility
-export const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+export const trackEvent = (eventName: string, parameters?: Record<string, unknown>) => {
   if (typeof window !== 'undefined' && window.fbq) {
     if (parameters) {
       window.fbq('track', eventName, parameters);
@@ -44,6 +48,6 @@ export const trackContact = () => {
   trackEvent('Contact');
 };
 
-export const trackCustomEvent = (eventName: string, parameters?: Record<string, any>) => {
+export const trackCustomEvent = (eventName: string, parameters?: Record<string, unknown>) => {
   trackEvent(eventName, parameters);
 }; 
