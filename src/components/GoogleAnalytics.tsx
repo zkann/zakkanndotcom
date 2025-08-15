@@ -7,6 +7,11 @@ interface GoogleAnalyticsProps {
 }
 
 export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: GoogleAnalyticsProps) {
+  // Additional safety check - only render in production
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
+  }
+
   return (
     <>
       <Script

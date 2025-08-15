@@ -15,11 +15,21 @@ export default function FBPixelRouteChange() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // Additional safety check - only run in production
+    if (process.env.NODE_ENV !== 'production') {
+      return;
+    }
+
     // Fire on route + query changes (ignore the very first run if you want—Meta tolerates duplicates)
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
       window.fbq("track", "PageView");
     }
   }, [pathname, searchParams]);
+
+  // Don't render anything if not in production
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
+  }
 
   return null;
 }

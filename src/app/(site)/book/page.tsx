@@ -1,5 +1,4 @@
 import { redirect } from 'next/navigation';
-import { Suspense } from 'react';
 
 export default function BookPage() {
   // This will redirect on the server side, preventing the RSC fetch error
@@ -13,9 +12,9 @@ function BookPageFallback() {
       <div className="text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cta mx-auto mb-4"></div>
         <h1 className="text-2xl font-semibold text-gray-900 mb-2">Redirecting to Calendly...</h1>
-        <p className="text-gray-600">You'll be redirected to book your free 30-minute call.</p>
+        <p className="text-gray-600">You&apos;ll be redirected to book your free 30-minute call.</p>
         <p className="text-sm text-gray-500 mt-4">
-          If you're not redirected automatically,{' '}
+          If you&apos;re not redirected automatically,{' '}
           <a 
             href="https://calendly.com/zakkann/30min" 
             className="text-cta hover:underline font-medium"
