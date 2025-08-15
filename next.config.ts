@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https: https://www.facebook.com",
-              "connect-src 'self' https: https://connect.facebook.net",
+              "connect-src 'self' https: https://connect.facebook.net https://www.facebook.com https://graph.facebook.com",
               "font-src 'self' data:",
               "frame-src 'self' https://cal.com https://*.cal.com https://calendly.com https://*.calendly.com",
               "frame-ancestors 'self'",
