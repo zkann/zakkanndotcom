@@ -21,6 +21,7 @@ export default function HeroSection({
   background = "bg-primary",
   image
 }: HeroSectionProps) {
+
   const renderSubtitle = (subtitleContent: string | Array<{ text: string; highlight?: boolean }>) => {
     if (Array.isArray(subtitleContent)) {
       return (
@@ -68,7 +69,7 @@ export default function HeroSection({
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`${image ? 'lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center' : 'text-center'}`}>
+        <div className={`${image ? 'lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center text-center lg:text-left' : 'text-center'}`}>
           {/* Text Content */}
           <div className={image ? 'lg:order-1' : ''}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5 text-white [text-wrap:balance]">
@@ -83,10 +84,10 @@ export default function HeroSection({
                 )}
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed md:leading-8">
+            <p className={`text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed md:leading-8 ${image ? 'mx-auto lg:mx-0' : 'mx-auto'}`}>
               {renderSubtitle(subtitle)}
             </p>
-            <div className={`flex flex-col gap-2 ${image ? 'justify-start items-start' : 'justify-center items-center'}`}>
+            <div className={`flex flex-col gap-2 ${image ? 'justify-center items-center lg:justify-start lg:items-start' : 'justify-center items-center'}`}>
               <a
                 href="/book"
                 data-event="cta_click"
@@ -95,13 +96,13 @@ export default function HeroSection({
               >
                 {ctaText}
               </a>
-              <div className={`text-sm text-white/80 max-w-3xs ${image ? 'text-left' : 'text-center mx-auto'}`}>{limitedText}</div>
+              <div className={`text-sm text-white/80 max-w-3xs ${image ? 'text-center lg:text-left' : 'text-center mx-auto'}`}>{limitedText}</div>
             </div>
           </div>
 
           {/* Image */}
           {image && (
-            <div className="lg:order-2 mt-12 lg:mt-0">
+            <div className="lg:order-2 mt-12 lg:mt-0 hidden lg:block">
               <div className="relative">
                 <Image
                   src={image}
