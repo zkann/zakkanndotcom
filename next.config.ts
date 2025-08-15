@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
     const cspDirectives = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "style-src 'self' 'unsafe-inline'",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: blob: https:",
       "connect-src 'self' https:",
       "font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com",
@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
     // Add analytics-related domains only in production
     if (isProduction) {
       cspDirectives[1] += " https://connect.facebook.net https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://f.convertkit.com https://assets.calendly.com https://calendly.com https://va.vercel-scripts.com https://*.vercel-scripts.com";
-      cspDirectives[2] += " https://assets.calendly.com https://calendly.com";
+      cspDirectives[2] += " https://assets.calendly.com https://calendly.com https://fonts.googleapis.com";
       cspDirectives[3] += " https://www.facebook.com https://www.google-analytics.com https://stats.g.doubleclick.net";
       cspDirectives[4] += " https://connect.facebook.net https://www.facebook.com https://graph.facebook.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://app.kit.com https://api.calendly.com https://calendly.com https://va.vercel-scripts.com https://*.vercel-scripts.com";
       cspDirectives[6] += " https://cal.com https://*.cal.com https://calendly.com https://*.calendly.com";
