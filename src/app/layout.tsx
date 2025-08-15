@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import "./globals.css";
 
+import FBPixelRouteChange from "@/components/FBPixelRouteChange";
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,7 +34,7 @@ export const metadata: Metadata = {
   },
 };
 
-const META_PIXEL_ID = '635050849636654';
+const META_PIXEL_ID = "635050849636654";
 
 export default function RootLayout({
   children,
@@ -58,14 +61,20 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
-        <noscript><img height="1" width="1" style={{ display: 'none' }}
-        src="https://www.facebook.com/tr?id=635050849636654&ev=PageView&noscript=1"
-        /></noscript>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
+        <FBPixelRouteChange />
         {children}
         <Analytics />
       </body>
