@@ -6,6 +6,8 @@ export const isProduction = process.env.NODE_ENV === 'production';
 export const isDevelopment = process.env.NODE_ENV === 'development';
 export const isTest = process.env.NODE_ENV === 'test';
 
+console.log("isProduction env", isProduction);
+
 /**
  * Check if analytics should be enabled
  * Currently only enabled in production, but can be overridden with env var

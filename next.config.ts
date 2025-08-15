@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
       "upgrade-insecure-requests",
     ];
 
+    console.log("isProduction config", isProduction);
+
     // Add analytics-related domains only in production
     if (isProduction) {
       cspDirectives[1] += " https://connect.facebook.net https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://f.convertkit.com https://assets.calendly.com https://calendly.com https://va.vercel-scripts.com https://*.vercel-scripts.com";
