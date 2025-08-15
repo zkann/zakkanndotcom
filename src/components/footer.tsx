@@ -80,7 +80,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy" data-event="nav_click" data-location="footer" data-title="Privacy" className="text-base text-gray-200 hover:text-white transition-colors">
+                    <Link href="/privacy-policy" data-event="nav_click" data-location="footer" data-title="Privacy" className="text-base text-gray-200 hover:text-white transition-colors">
                       Privacy policy
                     </Link>
                   </li>

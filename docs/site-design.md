@@ -22,7 +22,7 @@
   - Post: `src/app/(site)/blog/[slug]/page.tsx` – MDX render, reading progress, ToC, related posts, JSON‑LD.
   - Feed: `src/app/feed.xml/route.ts` – RSS 2.0 from Contentlayer.
   - Per‑post OG image: `src/app/(site)/blog/[slug]/opengraph-image.tsx`.
-- **Legal**: `src/app/(site)/privacy/page.tsx`, `src/app/(site)/terms/page.tsx`.
+- **Legal**: `src/app/(site)/privacy-policy/page.tsx`, `src/app/(site)/terms/page.tsx`.
 - **404**: `src/app/(site)/not-found.tsx`.
 - **Booking**: Redirect in `next.config.ts` from `/book` → Calendly (302/307).
 - **API**: `src/app/api/chat/route.ts` → OpenAI via `src/lib/ai.ts` (edge runtime).
