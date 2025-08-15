@@ -2,6 +2,7 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { shouldEnableAnalytics } from '@/lib/env';
 
 declare global {
   interface Window {
@@ -18,8 +19,8 @@ export default function GoogleAnalyticsRouteChange() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Additional safety check - only run in production
-    if (process.env.NODE_ENV !== 'production') {
+    // Additional safety check - only run when analytics are enabled
+    if (!shouldEnableAnalytics) {
       return;
     }
 
@@ -30,8 +31,8 @@ export default function GoogleAnalyticsRouteChange() {
     }
   }, [pathname, searchParams]);
 
-  // Don't render anything if not in production
-  if (process.env.NODE_ENV !== 'production') {
+  // Don't render anything if analytics are not enabled
+  if (!shouldEnableAnalytics) {
     return null;
   }
 

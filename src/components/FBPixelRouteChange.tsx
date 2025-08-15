@@ -3,6 +3,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { shouldEnableTracking } from '@/lib/env';
 
 declare global {
   interface Window {
@@ -15,8 +16,8 @@ export default function FBPixelRouteChange() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Additional safety check - only run in production
-    if (process.env.NODE_ENV !== 'production') {
+    // Additional safety check - only run when tracking is enabled
+    if (!shouldEnableTracking) {
       return;
     }
 
@@ -26,8 +27,8 @@ export default function FBPixelRouteChange() {
     }
   }, [pathname, searchParams]);
 
-  // Don't render anything if not in production
-  if (process.env.NODE_ENV !== 'production') {
+  // Don't render anything if tracking is not enabled
+  if (!shouldEnableTracking) {
     return null;
   }
 

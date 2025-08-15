@@ -7,6 +7,7 @@ import "./globals.css";
 import FBPixelRouteChange from "@/components/FBPixelRouteChange";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import GoogleAnalyticsRouteChange from "@/components/GoogleAnalyticsRouteChange";
+import { shouldEnableAnalytics, shouldEnableTracking } from "@/lib/env";
 
 
 const geistSans = Geist({
@@ -40,9 +41,6 @@ export const metadata: Metadata = {
 const META_PIXEL_ID = "635050849636654";
 const GA_MEASUREMENT_ID = 'G-97FMTHNYXQ';
 
-// Check if we're in production
-const isProduction = process.env.NODE_ENV === 'production';
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,8 +49,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Meta Pixel base code - only in production */}
-        {isProduction && (
+        {/* Meta Pixel base code - only when tracking is enabled */}
+        {shouldEnableTracking && (
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -74,8 +72,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Meta Pixel noscript fallback - only in production */}
-        {isProduction && (
+        {/* Meta Pixel noscript fallback - only when tracking is enabled */}
+        {shouldEnableTracking && (
           <noscript>
             {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
             <img
@@ -87,15 +85,15 @@ export default function RootLayout({
           </noscript>
         )}
         <Suspense fallback={null}>
-          {/* Only render analytics components in production */}
-          {isProduction && <FBPixelRouteChange />}
-          {isProduction && GA_MEASUREMENT_ID && <GoogleAnalyticsRouteChange />}
+          {/* Only render analytics components when enabled */}
+          {shouldEnableTracking && <FBPixelRouteChange />}
+          {shouldEnableAnalytics && GA_MEASUREMENT_ID && <GoogleAnalyticsRouteChange />}
         </Suspense>
         {children}
-        {/* Vercel Analytics - only in production */}
-        {isProduction && <Analytics />}
-        {/* Google Analytics - only in production */}
-        {isProduction && GA_MEASUREMENT_ID && <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />}
+        {/* Vercel Analytics - only when analytics are enabled */}
+        {shouldEnableAnalytics && <Analytics />}
+        {/* Google Analytics - only when analytics are enabled */}
+        {shouldEnableAnalytics && GA_MEASUREMENT_ID && <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );

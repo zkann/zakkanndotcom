@@ -2,9 +2,15 @@
 
 import { useEffect } from "react";
 import { track } from "@vercel/analytics";
+import { shouldEnableAnalytics } from '@/lib/env';
 
 export default function AnalyticsEvents() {
   useEffect(() => {
+    // Don't set up analytics events if analytics are disabled
+    if (!shouldEnableAnalytics) {
+      return;
+    }
+
     const onClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!target) return;
@@ -57,6 +63,11 @@ export default function AnalyticsEvents() {
       observers.forEach((o) => o.disconnect());
     };
   }, []);
+
+  // Don't render anything if analytics are disabled
+  if (!shouldEnableAnalytics) {
+    return null;
+  }
 
   return null;
 }

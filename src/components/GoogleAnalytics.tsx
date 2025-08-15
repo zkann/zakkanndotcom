@@ -1,14 +1,15 @@
 'use client';
 
 import Script from 'next/script';
+import { shouldEnableAnalytics } from '@/lib/env';
 
 interface GoogleAnalyticsProps {
   GA_MEASUREMENT_ID: string;
 }
 
 export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: GoogleAnalyticsProps) {
-  // Additional safety check - only render in production
-  if (process.env.NODE_ENV !== 'production') {
+  // Additional safety check - only render when analytics are enabled
+  if (!shouldEnableAnalytics) {
     return null;
   }
 
