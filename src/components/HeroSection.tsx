@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useEventTracking } from './FacebookPixelTracker';
 
 interface HeroSectionProps {
   industry?: string;
@@ -21,6 +22,7 @@ export default function HeroSection({
   background = "bg-primary",
   image
 }: HeroSectionProps) {
+  const { trackLead, trackButtonClick } = useEventTracking();
 
   const renderSubtitle = (subtitleContent: string | Array<{ text: string; highlight?: boolean }>) => {
     if (Array.isArray(subtitleContent)) {
@@ -54,6 +56,11 @@ export default function HeroSection({
   const formatIndustry = (industryName: string) => {
     // Replace spaces with non-breaking spaces within the industry name
     return industryName.replace(/\s+/g, '\u00A0');
+  };
+
+  const handleCTAClick = () => {
+    trackButtonClick('Hero CTA', window.location.pathname);
+    trackLead();
   };
 
   return (
@@ -92,6 +99,7 @@ export default function HeroSection({
                 href="/book"
                 data-event="cta_click"
                 data-location={ctaLocation}
+                onClick={handleCTAClick}
                 className="inline-flex items-center px-7 py-2 text-base md:text-lg font-semibold rounded-lg text-white bg-cta hover:brightness-90 transition-colors shadow-sm w-auto justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cta focus-visible:ring-offset-primary"
               >
                 {ctaText}

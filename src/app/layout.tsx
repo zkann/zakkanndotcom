@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
+import { FacebookPixelTracker } from '@/components/FacebookPixelTracker';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,7 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* Meta Pixel Code */}
         <Script
           id="meta-pixel"
@@ -56,6 +59,13 @@ export default function RootLayout({
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '635050849636654');
               fbq('track', 'PageView');
+              
+              // Track page views on route changes
+              if (typeof window !== 'undefined') {
+                window.addEventListener('load', function() {
+                  fbq('track', 'PageView');
+                });
+              }
             `,
           }}
         />
@@ -69,10 +79,8 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        
+        <FacebookPixelTracker />
         {children}
         <Analytics />
       </body>

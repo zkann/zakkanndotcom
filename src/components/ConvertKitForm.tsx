@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEventTracking } from './FacebookPixelTracker';
 
 type ConvertKitFormProps = {
   formId?: string;
@@ -21,6 +22,7 @@ export default function ConvertKitForm({
 }: ConvertKitFormProps) {
   const formId = formIdProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID;
   const uid = uidProp ?? process.env.NEXT_PUBLIC_CONVERTKIT_FORM_UID;
+  const { trackLead, trackFormSubmission } = useEventTracking();
 
   if (!formId) {
     // If no form id is configured, don't render the form
@@ -30,10 +32,17 @@ export default function ConvertKitForm({
   // Align with current Kit embed domain
   const actionUrl = `https://app.kit.com/forms/${formId}/subscriptions`;
 
+  const handleSubmit = () => {
+    // Track form submission
+    trackFormSubmission('ConvertKit Newsletter', window.location.pathname);
+    trackLead();
+  };
+
   return (
     <form
       action={actionUrl}
       method="post"
+      onSubmit={handleSubmit}
       {...(uid
         ? { 'data-sv-form': String(formId), 'data-uid': String(uid) }
         : {})}
