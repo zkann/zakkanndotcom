@@ -19,6 +19,12 @@ export default function IndustrySolutionsSection({ background = "bg-white" }: { 
       description: 'Streamline client intake & billing',
       href: '/law-firm-automation',
       icon: '💼'
+    },
+    {
+      name: 'Marketing Agencies',
+      description: 'Eliminate manual reporting & onboarding',
+      href: '/marketing-agency-automation',
+      icon: '📊'
     }
   ];
 
@@ -31,7 +37,7 @@ export default function IndustrySolutionsSection({ background = "bg-white" }: { 
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {industries.map((industry) => (
             <Link
               key={industry.name}
