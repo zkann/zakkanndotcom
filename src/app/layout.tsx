@@ -7,6 +7,8 @@ import "./globals.css";
 import FBPixelRouteChange from "@/components/FBPixelRouteChange";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import GoogleAnalyticsRouteChange from "@/components/GoogleAnalyticsRouteChange";
+import LinkedInInsightTag from "@/components/LinkedInInsightTag";
+import LinkedInInsightRouteChange from "@/components/LinkedInInsightRouteChange";
 import { shouldEnableAnalytics, shouldEnableTracking } from "@/lib/env";
 
 
@@ -40,6 +42,7 @@ export const metadata: Metadata = {
 
 const META_PIXEL_ID = "3094116730768349";
 const GA_MEASUREMENT_ID = 'G-97FMTHNYXQ';
+const LINKEDIN_PARTNER_ID = "7867914";
 
 export default function RootLayout({
   children,
@@ -68,6 +71,8 @@ export default function RootLayout({
             }}
           />
         )}
+        {/* LinkedIn Insight Tag - only when tracking is enabled */}
+        {shouldEnableTracking && <LinkedInInsightTag partnerId={LINKEDIN_PARTNER_ID} />}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -84,9 +89,23 @@ export default function RootLayout({
             />
           </noscript>
         )}
+        {/* LinkedIn Insight Tag noscript fallback - only when tracking is enabled */}
+        {shouldEnableTracking && (
+          <noscript>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              alt=""
+              src={`https://px.ads.linkedin.com/collect/?pid=${LINKEDIN_PARTNER_ID}&fmt=gif`}
+            />
+          </noscript>
+        )}
         <Suspense fallback={null}>
           {/* Only render analytics components when enabled */}
           {shouldEnableTracking && <FBPixelRouteChange />}
+          {shouldEnableTracking && <LinkedInInsightRouteChange />}
           {shouldEnableAnalytics && GA_MEASUREMENT_ID && <GoogleAnalyticsRouteChange />}
         </Suspense>
         {children}
