@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 
 const META_PIXEL_ID = "3094116730768349";
 const GA_MEASUREMENT_ID = 'G-97FMTHNYXQ';
-const LINKEDIN_PARTNER_ID = "7867914";
+const LINKEDIN_PARTNER_ID = "8679633";
 
 export default function RootLayout({
   children,
