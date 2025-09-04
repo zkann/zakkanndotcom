@@ -71,8 +71,6 @@ export default function RootLayout({
             }}
           />
         )}
-        {/* LinkedIn Insight Tag - only when tracking is enabled */}
-        {shouldEnableTracking && <LinkedInInsightTag partnerId={LINKEDIN_PARTNER_ID} />}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -109,6 +107,8 @@ export default function RootLayout({
           {shouldEnableAnalytics && GA_MEASUREMENT_ID && <GoogleAnalyticsRouteChange />}
         </Suspense>
         {children}
+        {/* LinkedIn Insight Tag - only when tracking is enabled */}
+        {shouldEnableTracking && <LinkedInInsightTag partnerId={LINKEDIN_PARTNER_ID} />}
         {/* Vercel Analytics - only when analytics are enabled */}
         {shouldEnableAnalytics && <Analytics />}
         {/* Google Analytics - only when analytics are enabled */}
