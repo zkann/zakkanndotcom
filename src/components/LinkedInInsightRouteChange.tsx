@@ -23,6 +23,6 @@ export default function LinkedInInsightRouteChange() {
 // Extend the Window interface to include LinkedIn tracking
 declare global {
   interface Window {
-    lintrk: (action: string, data?: any) => void;
+    lintrk: (action: string, data?: { conversion_id?: number }) => void;
   }
 }
